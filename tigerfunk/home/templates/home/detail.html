@@ -1,0 +1,7 @@
+{% extends 'home/base.html' %}
+{% block body %}
+  <h1>{{ article.title }}</h1>
+  <date>Le {{ article.date|date:'d M Y' }}</date>
+  <article>{{ article.entry|safe }}</article>
+  <a href="{% url 'home:index' %}">Retour</a>
+{% endblock %}

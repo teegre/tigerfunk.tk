@@ -1,0 +1,20 @@
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0C0C0C;
+  color: #FF0030;
+}
+
+a {
+  color: #FF0030;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #FFFFFF;
+  transition: .25s;
+}
+
+a:visited {
+  color: #FF0030;
+  text-decoration: dotted;
+}

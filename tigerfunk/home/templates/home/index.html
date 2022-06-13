@@ -1,0 +1,11 @@
+{% extends 'home/base.html' %}
+{% block body %}
+  <h1><b>Bienvenue !</b></h1>
+    <ul>
+    {% for article in articles %}
+    {% if article.recently_published %}
+    <li>{{ article.date|date:'Ymd' }} <a href="{% url 'home:detail' article.id %}">{{ article.title }}</a></li>
+    {% endif %}
+    {% endfor %}
+    </ul>
+{% endblock %}
