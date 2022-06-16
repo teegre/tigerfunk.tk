@@ -1,0 +1,45 @@
+@font-face {
+  font-family: Hi;
+  src: url('../fonts/HiBlack-n3a1.otf') format('truetype');
+}
+
+h1, h2 {
+  font-family: Hi;
+}
+
+a {
+  color: #FF0030;
+  text-decoration: none;
+  transition: .25s ease-in-out;
+}
+
+a.nav-link {
+  color: #FF0030;
+  margin-right: 4px;
+  transition: 0.5s ease-in-out;
+  border-radius: 4px;
+}
+
+.active {
+  background: #DFDFDF;
+  color: #FFFFFF;
+  font-weight: bolder;
+  border-radius: 4px;
+}
+
+a:hover {
+  color: black;
+  transition: .25s;
+}
+
+a.nav-link:hover {
+  background: #FF0030;
+  color: #FFFFFF;
+  border-radius: 4px;
+  transition: .5s ease-out;
+}
+
+a:visited {
+  color: #FF0030;
+  text-decoration: dotted;
+}

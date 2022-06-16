@@ -1,11 +1,35 @@
 {% extends 'home/base.html' %}
+{% block title %}tigerfunk.tk [home]{% endblock %}
 {% block body %}
-  <h1><b>Bienvenue !</b></h1>
-    <ul>
-    {% for article in articles %}
-    {% if article.recently_published %}
-    <li>{{ article.date|date:'Ymd' }} <a href="{% url 'home:detail' article.id %}">{{ article.title }}</a></li>
-    {% endif %}
-    {% endfor %}
-    </ul>
+      <h1><b>Bienvenue !</b></h1>
+      <pre><code class="small">
+      #! /usr/bin/env bash
+      activity=$1
+      [[ $1 ]] || { echo "error: no activity."; exit 1 ;}
+      declare -a artist
+      case $activity in
+        music)
+          artist=( "tigerlost" "tigerfunk" "tigerfreq" "umal115" )
+          ;;
+        programming)
+          artist=( "teegre" )
+          ;;
+        *)
+          echo "error: '${activity}' no such activity"
+          exit 1
+      esac
+      echo "${activity^^}:"
+      for name in "${artist[@]}"; do
+        echo "* ${name^}"
+      done
+      </code></pre>
+      <h2><b>Publications</b></h2>
+      <hr>
+      <ul class="list-unstyled">
+      {% for article in articles %}
+      {% if article.recently_published %}
+      <li>{{ article.date|date:'Ymd' }} <a href="{% url 'home:detail' article.id %}"><strong>{{ article.title }}</strong></a></li>
+      {% endif %}
+      {% endfor %}
+      </ul>
 {% endblock %}
