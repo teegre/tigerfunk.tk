@@ -5,41 +5,59 @@
 
 h1, h2 {
   font-family: Hi;
+  color: purple;
+  font-weight: bolder;
 }
 
-a {
-  color: #FF0030;
+main a {
+  color: purple;
   text-decoration: none;
   transition: .25s ease-in-out;
 }
 
-a.nav-link {
-  color: #FF0030;
-  margin-right: 4px;
-  transition: 0.5s ease-in-out;
-  border-radius: 4px;
-}
-
-.active {
-  background: #DFDFDF;
-  color: #FFFFFF;
-  font-weight: bolder;
-  border-radius: 4px;
-}
-
-a:hover {
+main a:hover {
   color: black;
   transition: .25s;
 }
 
-a.nav-link:hover {
-  background: #FF0030;
+main a:visited {
+  color: purple;
+  text-decoration: dotted;
+}
+
+.navbar-custom {
+  background: #C0C0C0;
+  font-family: Hi;
+}
+
+.navbar-custom .navbar-brand {
+  color: purple;
+}
+
+.navbar-custom .navbar-nav .nav-link {
+  text-align: center;
+  color: purple;
+  margin: 4px;
+  transition: 0.5s ease-in-out;
+  border-radius: 4px;
+}
+
+.navbar-custom .navbar-nav .nav-link:hover {
+  text-align: center;
+  background: purple;
   color: #FFFFFF;
   border-radius: 4px;
   transition: .5s ease-out;
 }
 
-a:visited {
-  color: #FF0030;
-  text-decoration: dotted;
+.navbar-custom .navbar-nav .nav-link.active {
+  text-align: center;
+  background: purple;
+  color: #FFFFFF;
+  font-weight: bolder;
+  border-radius: 4px;
+}
+
+.footer, .date {
+  background: #C0C0C0;
 }

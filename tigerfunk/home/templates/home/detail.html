@@ -1,10 +1,12 @@
 {% extends 'home/base.html' %}
 {% block body %}
   <h1>{{ article.title }}</h1>
-  <div class="bg-light">
-    <time class="small">Le {{ article.date|date:'d F Y' }}</time>
-  </div>
-  <hr>
-  <article>{{ article.entry|safe }}</article>
-  <a href="{% url 'home:index' %}">Retour</a>
+  <main>
+    <div class="date">
+      <time class="small ml-1">Le {{ article.date|date:'d F Y' }}</time>
+    </div>
+    <hr>
+    <article>{{ article.entry|safe }}</article>
+    <a href="{% url 'home:index' %}">Retour</a>
+  </main>
 {% endblock %}

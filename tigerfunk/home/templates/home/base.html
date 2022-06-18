@@ -6,12 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="{% static 'home/css/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'home/css/custom/style.css' %}">
+    <link rel="shortcut icon" type="img/x-icon" href="{% static 'home/img/favicon.png' %}">
     <title>{% block title %}{% endblock %}</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-custom navbar-expand-md navbar-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'home:index' %}"><b>tigerfunk.tk</b></a>
+        <a class="navbar-brand" href="{% url 'home:index' %}">
+          <img src="{% static 'home/img/logo32.png' %}" alt="tigerfunk.tk logo">
+          <b>tigerfunk.tk</b>
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" arial-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -43,8 +47,8 @@
     {% block body %}
     {% endblock %}
     <hr>
-    <footer class="footer bg-light">
-      <span class="small text-muted">© 2022 tigerfunk.tk</span>
+    <footer class="footer">
+      <span class="small text-muted">  © 2022 tigerfunk.tk</span>
     </footer>
     </div>
     <script src="{% static 'home/js/bootstrap.bundle.min.js' %}"></script>
