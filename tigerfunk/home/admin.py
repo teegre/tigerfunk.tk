@@ -1,6 +1,6 @@
 """ Admin models """
 
 from django.contrib import admin
-from home.models import ArticleModel
+from home.models import Article
 
-admin.site.register(ArticleModel)
+admin.site.register(Article)
