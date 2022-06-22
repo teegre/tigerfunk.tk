@@ -10,12 +10,14 @@ class Article(models.Model):
   date = models.DateField('date de publication')
   entry = models.TextField()
 
+  @property
   def recently_published(self):
     """ Return True if article was published recently """
     now = timezone.now().date()
     recent = self.date <= now - datetime.timedelta(days=0)
-    return not self.is_archived() and recent
+    return not self.is_archived and recent
 
+  @property
   def is_archived(self):
     """ Return True if article was published more than 1 month ago """
     now = timezone.now().date()

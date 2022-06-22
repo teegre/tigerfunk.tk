@@ -1,0 +1,14 @@
+{% extends 'home/base.html' %}
+{% block title %}{% endblock %}
+{% block body %}
+      <h1><b>Archives {{ month|date:'F Y' }}</b></h1>
+      <main>
+        <h2><b>Publications</b></h2>
+        <hr>
+        <ul class="list-unstyled">
+        {% for article in articles %}
+          <li>{{ article.date|date:'Ymd' }} <a href="{% url 'home:detail' article.id %}"><strong>{{ article.title }}</strong></a></li>
+        {% endfor %}
+        </ul>
+      </main>
+{% endblock %}
