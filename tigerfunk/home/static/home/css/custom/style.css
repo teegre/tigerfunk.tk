@@ -1,33 +1,27 @@
-@font-face {
-  font-family: Hi;
-  src: url('../fonts/HiBlack-n3a1.otf') format('truetype');
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #9F9F9F;
+  letter-spacing: -1px;
+}
+nav div {
+  display: flex;
+  flex-direction: row;
+  border-radius: 4px;
+  background: #303030;
 }
 
-h1, h2 {
-  font-family: Hi;
-  color: purple;
-  font-weight: bolder;
-}
-
-main a {
-  color: purple;
+.navbar-brand {
+  display: flex;
+  flex-direction: row;
+  background: whitesmoke;
   text-decoration: none;
-  transition: .25s ease-in-out;
+  margin: 6px;
+  padding: 3px;
+  border-radius: 2px;
 }
 
-main a:hover {
-  color: black;
-  transition: .25s;
-}
-
-main a:visited {
-  color: purple;
-  text-decoration: dotted;
-}
-
-.navbar-custom {
-  background: #C0C0C0;
-  font-family: Hi;
+.navbar-custom .navbar-brand, .navbar-custom ul li {
+  display: inline;
 }
 
 .navbar-custom .navbar-brand {
@@ -35,9 +29,10 @@ main a:visited {
 }
 
 .navbar-custom .navbar-nav .nav-link {
-  text-align: center;
-  color: purple;
-  margin: 4px;
+  color: white;
+  margin: 8px;
+  padding: 4px;
+  text-decoration: none;
   transition: 0.5s ease-in-out;
   border-radius: 4px;
 }
@@ -58,6 +53,60 @@ main a:visited {
   border-radius: 4px;
 }
 
-.footer, .date {
-  background: #C0C0C0;
+h1, h2 {
+  color: purple;
+  font-weight: bolder;
+}
+
+hr {
+  border: 1px solid;
+}
+
+footer, .date {
+  background: #303030;  
+  color: grey;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+main ul {
+  list-style: none;
+}
+
+main ul {
+  display: contents;
+}
+
+main a {
+  color: purple;
+  text-decoration: none;
+  transition: .25s ease-in-out;
+}
+
+main a:hover {
+  color: black;
+  transition: .25s;
+}
+
+main a:visited {
+  color: purple;
+  text-decoration: dotted;
+}
+
+main #btn-back {
+  background: purple;
+  color: grey;
+  font-weight: bolder;
+  padding: 4px;
+  border-radius: 4px;
+  transition: .5s ease-in-out;
+}
+
+main #btn-back:hover {
+  background: white;
+  color: purple;
+  font-weight: bolder;
+  padding: 4px;
+  border-radius: 4px;
+  transition: .5s;
 }
