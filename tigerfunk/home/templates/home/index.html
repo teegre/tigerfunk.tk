@@ -9,11 +9,25 @@
       <main>
         <h2><b>Publications</b></h2>
         <hr>
-        <ul class="list-unstyled">
+        <ul>
         {% for article in articles %}
-        {% if article.recently_published %}
+          {% if article.recently_published %}
           <li>{{ article.date|date:'Ymd' }} <a href="{% url 'home:detail' article.id %}"><strong>{{ article.title }}</strong></a></li>
-        {% endif %}
+          {% endif %}
+        {% empty %}
+          <li><strong>Nihil novi sub sole.</strong></li>
+        {% endfor %}
+        </ul>
+        <h2><b>Archives</b></h2>
+        <hr>
+        {% regroup archives by date.month as article_list %}
+        <ul>
+        {% for month, arts in article_list %}
+        {% with article=arts|first %}
+          <li><a href="{% url 'home:archive' article.date.year month %}"><strong>{{ article.date.year }}/{{ month }}</strong></a></li>
+        {% endwith %}
+        {% empty %}
+          <li><strong>Pas d'archives</strong></li>
         {% endfor %}
         </ul>
       </main>
