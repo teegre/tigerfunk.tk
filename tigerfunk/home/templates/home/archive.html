@@ -5,7 +5,7 @@
       <main>
         <h2><b>Publications</b></h2>
         <hr>
-        <ul class="list-unstyled">
+        <ul>
         {% for article in articles %}
           <li>{{ article.date|date:'Ymd' }} <a href="{% url 'home:detail' article.id %}"><strong>{{ article.title }}</strong></a></li>
         {% endfor %}
