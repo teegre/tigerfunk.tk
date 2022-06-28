@@ -4,59 +4,47 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Dégage
-    <link rel="stylesheet" type="text/css" href="{% static 'home/css/bootstrap.min.css' %}">
-    -->
-    <link rel="stylesheet" type="text/css" href="{% static 'home/css/custom/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'home/css/style.css' %}">
     <link rel="shortcut icon" type="img/x-icon" href="{% static 'home/img/favicon.png' %}">
     <title>{% block title %}{% endblock %}</title>
   </head>
   <body>
-    <nav class="navbar navbar-custom navbar-expand-md navbar-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'home:index' %}">
-          <!-- <img src="{% static 'home/img/logo32.png' %}" alt="tigerfunk.tk logo"> -->
+    <nav>
+      <div>
+        <a class="nav-brand" href="{% url 'home:index' %}">
           <b>tigerfunk.tk</b>
         </a>
-        <!--
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" arial-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="navitem">
-              <a class="nav-link {% if request.path == '/home/' %}active{% endif %}" href="{% url 'home:index' %}">home</a>
-            </li>
-            <li class="navitem">
-              <a class="nav-link" href="#">radio</a>
-            </li>
-            <li class="navitem">
-              <a class="nav-link" href="#">tv</a>
-            </li>
-            <li class="navitem">
-              <a class="nav-link" href="#">rss</a>
-            </li>
-            <li class="navitem">
-              <a class="nav-link" href="#">contact</a>
-            </li>
-            <li class="navitem">
-              <a class="nav-link" href="#">support</a>
-            </li>
-          </ul>
-        </div>
+        <ul>
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == '/home/' %}active{% endif %}" href="{% url 'home:index' %}">home</a>
+          </li>
+          <!--
+          <li class="nav-item">
+            <a class="nav-link" href="#">radio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://odysee.com/@tigerfreq" target="_blank">tv</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">rss</a>
+          </li>
+          -->
+          <li class="nav-item">
+            <a class="nav-link" href="#">contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">support</a>
+          </li>
+        </ul>
       </div>
     </nav>
-    <div class="container-fluid mt-4">
+    <div>
     {% block body %}
     {% endblock %}
     <hr>
-    <footer class="footer">
-      <span class="small text-muted">© {% now 'Y' %} tigerfunk.tk</span>
+    <footer>
+      <span >© {% now 'Y' %} tigerfunk.tk</span>
     </footer>
     </div>
-    <!-- Dégage
-    <script src="{% static 'home/js/bootstrap.bundle.min.js' %}"></script>
-    -->
   </body>
 </html>

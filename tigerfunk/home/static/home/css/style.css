@@ -1,52 +1,50 @@
 html {
   font-family: Arial, Helvetica, sans-serif;
-  background: #1F1F1F;
-  color: #7F7F7F;
+  background: whitesmoke;
+  color: darkmagenta;
   letter-spacing: -1px;
+  max-width: 70ch;
+  margin: auto;
 }
+
 nav div {
   display: flex;
-  flex-direction: row;
   border-radius: 4px;
-  background: #303030;
+  background:  white;
 }
 
-.navbar-brand {
-  display: flex;
-  flex-direction: row;
-  background: whitesmoke;
-  text-decoration: none;
-  margin: 6px;
-  padding: 3px;
-  border-radius: 2px;
-}
-
-.navbar-custom .navbar-brand, .navbar-custom ul li {
+nav ul li {
   display: inline;
+  margin: 12px;
 }
 
-.navbar-custom .navbar-brand {
+.nav-brand {
   color: purple;
+  font-size: 1.1rem;
+  font-weight: lighter;
+  text-decoration: none;
+  margin-top: 16px;
+  margin-left: 8px;
+  margin-right: -24px;
 }
 
-.navbar-custom .navbar-nav .nav-link {
-  color: white;
-  margin: 8px;
+.nav-link {
+  color: purple;
+  margin: px;
   padding: 4px;
   text-decoration: none;
   transition: 0.5s ease-in-out;
   border-radius: 4px;
 }
 
-.navbar-custom .navbar-nav .nav-link:hover {
-  text-align: center;
+.nav-link:hover {
   background: purple;
   color: #FFFFFF;
   border-radius: 4px;
   transition: .5s ease-out;
 }
 
-.navbar-custom .navbar-nav .nav-link.active {
+.nav-link.active {
   text-align: center;
   background: purple;
   color: #FFFFFF;
@@ -64,17 +62,14 @@ hr {
 }
 
 footer, .date {
-  background: #303030;  
-  color: grey;
+  background: purple;  
+  color: whitesmoke;
   padding: 4px;
   border-radius: 4px;
 }
 
 main ul {
   list-style: none;
-}
-
-main ul {
   display: contents;
 }
 
@@ -85,7 +80,7 @@ main a {
 }
 
 main a:hover {
-  color: black;
+  color: grey;
   transition: .25s;
 }
 
@@ -96,8 +91,8 @@ main a:visited {
 
 main #btn-back {
   background: purple;
-  color: grey;
-  font-weight: bolder;
+  color: white;
+  font-weight: bold;
   padding: 4px;
   border-radius: 4px;
   transition: .5s ease-in-out;
@@ -106,8 +101,12 @@ main #btn-back {
 main #btn-back:hover {
   background: white;
   color: purple;
-  font-weight: bolder;
+  font-weight: bold;
   padding: 4px;
   border-radius: 4px;
   transition: .5s;
+}
+
+main pre code {
+  font-size: 1rem;
 }
