@@ -3,7 +3,7 @@
 {% block body %}
       <h1><b style="font-variant: small-caps;">TIGERFUNK.TK</b> 500mg</h1>
       <h2><b>Synthèse</b></h2>
-      <p>Site internet - Site www - Site - Internet - Page web - Page www - Page d'accueil.</p>
+      <p>Site internet - Site www - Site - Internet - Page web - Page www - Page d'accueil - Blog - Journal internet - Billets - Articles.</p>
       <h3><b>Classification ATC :</b></h3>
       <p style="font-variant: small-caps;">
       html - css - JavaScript
@@ -11,7 +11,7 @@
       <p><strong>&#x1F48A; Ne pas dépasser la dose prescrite.</strong></p>
       <main>
         <h2><b>Publications</b></h2>
-        Lisez attentivement ce qui suit.
+        À consommer avant la fin du mois courant.
         <hr>
         <ul>
         {% for article in articles %}
@@ -22,8 +22,7 @@
           <li><strong>Nihil novi sub sole.</strong></li>
         {% endfor %}
         </ul>
-        <h2><b>Anciennes publications</b></h2>
-        Si vous n'avez pas trouvé ce que vous recherchez, lisez ce qui suit.
+        <h2><b>Publications expirées</b></h2>
         <hr>
         {% regroup archives by date.month as article_list %}
         <ul>
@@ -32,7 +31,7 @@
           <li><a href="{% url 'home:archive' article.date.year month %}"><strong>{{ article.date.year }}/{{ month }}</strong></a></li>
         {% endwith %}
         {% empty %}
-          <li><strong>Pas d'archives</strong></li>
+          <li><strong>Rien ici.</strong></li>
         {% endfor %}
         </ul>
       </main>
