@@ -7,6 +7,22 @@ html {
   margin: auto;
 }
 
+div .message {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: purple;
+  color: whitesmoke;
+  padding: 4px;
+  margin: 8px;
+  border-radius: 4px;
+}
+
+.close-btn {
+  cursor: pointer;
+}
+
 nav div {
   display: flex;
   border-radius: 4px;
@@ -19,13 +35,18 @@ nav ul li {
 }
 
 .nav-brand {
-  color: purple;
+  background: purple;
+  color: whitesmoke;
   font-size: 1.1rem;
   font-weight: lighter;
   text-decoration: none;
-  margin-top: 16px;
+  margin-top: 11px;
   margin-left: 8px;
   margin-right: -24px;
+  border: 1px solid purple;
+  border-radius: 2px;
+  margin-bottom: auto;
+  padding: 4px;
 }
 
 .nav-link {
@@ -89,7 +110,7 @@ main a:visited {
   text-decoration: dotted;
 }
 
-main #btn-back {
+#btn-back {
   background: purple;
   color: white;
   font-weight: bold;
@@ -98,13 +119,53 @@ main #btn-back {
   transition: .5s ease-in-out;
 }
 
-main #btn-back:hover {
+#btn-back:hover {
   background: white;
   color: purple;
   font-weight: bold;
   padding: 4px;
   border-radius: 4px;
   transition: .5s;
+}
+
+label {
+  display: inline-block;
+  font-size: smaller;
+  font-weight: bold;
+}
+
+input[type="text"], input[type="email"] {
+  display: inline-block;  
+  width: -moz-available;
+}
+
+textarea {
+  display: inline-block;
+  width: -moz-available;
+  resize: none;
+}
+
+input[type="submit"] {
+  width: 100%;
+  background: purple;
+  border: none;
+  color: white;
+  padding: 4px;
+  border-radius: 4px;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: .25s ease-in-out;
+}
+
+input[type="submit"]:hover {
+  background: white;
+  color: purple;
+  transition: .25s ease-in;
+}
+
+.form-div {
+  background: lavender;
+  padding: 12px
 }
 
 main pre code {

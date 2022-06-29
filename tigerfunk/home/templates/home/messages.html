@@ -1,0 +1,7 @@
+  {% if messages %}
+    {% for message in messages %}
+      <div class="message">
+        <span><strong>{{ message }}</strong></span><span class="close-btn" onclick="this.parentElement.style.display='none'">&times;</span>
+      </div>
+    {% endfor %}
+  {% endif %}

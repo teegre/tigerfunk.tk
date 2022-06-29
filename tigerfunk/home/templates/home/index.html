@@ -1,12 +1,17 @@
 {% extends 'home/base.html' %}
 {% block title %}tigerfunk.tk [home]{% endblock %}
 {% block body %}
-      <h1><b>Bienvenue</b></h1>
-      <p>
-      Bonjour, si vous trouvez quelque chose d'intéressant ici, faites-le moi savoir.
+      <h1><b style="font-variant: small-caps;">TIGERFUNK.TK</b> 500mg</h1>
+      <h2><b>Synthèse</b></h2>
+      <p>Site internet - Site www - Site - Internet - Page web - Page www - Page d'accueil.</p>
+      <h3><b>Classification ATC :</b></h3>
+      <p style="font-variant: small-caps;">
+      html - css - JavaScript
       </p>
+      <p><strong>&#x1F48A; Ne pas dépasser la dose prescrite.</strong></p>
       <main>
         <h2><b>Publications</b></h2>
+        Lisez attentivement ce qui suit.
         <hr>
         <ul>
         {% for article in articles %}
@@ -17,7 +22,8 @@
           <li><strong>Nihil novi sub sole.</strong></li>
         {% endfor %}
         </ul>
-        <h2><b>Archives</b></h2>
+        <h2><b>Anciennes publications</b></h2>
+        Si vous n'avez pas trouvé ce que vous recherchez, lisez ce qui suit.
         <hr>
         {% regroup archives by date.month as article_list %}
         <ul>

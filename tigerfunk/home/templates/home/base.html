@@ -11,9 +11,7 @@
   <body>
     <nav>
       <div>
-        <a class="nav-brand" href="{% url 'home:index' %}">
-          <b>tigerfunk.tk</b>
-        </a>
+        <a class="nav-brand" href="{% url 'home:index' %}">tigerfunk.tk 500mg</a>
         <ul>
           <li class="nav-item">
             <a class="nav-link {% if request.path == '/home/' %}active{% endif %}" href="{% url 'home:index' %}">home</a>
@@ -30,7 +28,7 @@
           </li>
           -->
           <li class="nav-item">
-            <a class="nav-link" href="#">contact</a>
+            <a class="nav-link {% if request.path == '/home/contact/' %}active{% endif %}" href="{% url 'home:contact' %}">contact</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">support</a>
@@ -39,6 +37,7 @@
       </div>
     </nav>
     <div>
+    {% include 'home/messages.html' %}
     {% block body %}
     {% endblock %}
     <hr>

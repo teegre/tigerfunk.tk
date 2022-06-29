@@ -1,0 +1,26 @@
+{% extends 'home/base.html' %}
+{% block title %}tigerfunk.tk [contact]{% endblock %}
+{% block body %}
+<h1><b>Contact</b></h1>
+<p>Laissez-moi un message et nous vous répondrons dans les plus brefs délais.</p>
+<main>
+  <div class="form-div">
+    <form method="post">
+      {% csrf_token %}
+
+      {{ form.sender.label_tag }}
+      {{ form.sender }}
+      {{ form.sender.errors }}
+      {{ form.subject.label_tag }}
+      {{ form.subject }}
+      {{ form.subject.errors }}
+
+      {{ form.message.label_tag }}
+      {{ form.message }}
+      {{ form.message.errors }}
+
+      <input id="#btn-back" type="submit" value="Envoyer">
+    </form>
+  </div>
+</main>
+{% endblock %}
