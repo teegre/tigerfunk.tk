@@ -3,10 +3,14 @@
 {% block body %}
       <h1><b style="font-variant: small-caps;">TIGERFUNK.TK</b> 500mg</h1>
       <h2><b>Synthèse</b></h2>
-      <p>Site internet - Site www - Site - Internet - Page web - Page www - Page d'accueil - Blog - Journal internet - Billets - Articles.</p>
-      <h3><b>Classification ATC :</b></h3>
+      {% for tag in tags %}
+        <a class="tag-btn" href="{% url 'home:tag' tag.tag__id %}">{{ tag.tag__name }}</b>({{ tag.count }})</a>
+      {% empty %}
+        <a class="tag-btn" href="#"><b>Null</b>(0)</a>
+      {% endfor %}
+      <h3><b>Classification :</b></h3>
       <p style="font-variant: small-caps;">
-      html - css - JavaScript
+      Site internet - Site web - Blog
       </p>
       <p><strong>&#x1F48A; Ne pas dépasser la dose prescrite.</strong></p>
       <main>

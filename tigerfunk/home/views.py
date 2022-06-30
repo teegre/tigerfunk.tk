@@ -6,7 +6,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.core.mail import send_mail, BadHeaderError
 from django.contrib import messages
-from .models import Article
+from django.db.models import Count
+from .models import Tag, Article
 from .forms import ContactForm
 
 class HomeView(generic.ListView):
@@ -16,8 +17,14 @@ class HomeView(generic.ListView):
 
   def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)
-    context['articles'] = Article.objects.filter(date__gte=timezone.now().date() - datetime.timedelta(days=30)) # pylint: disable=no-member
-    context['archives'] = Article.objects.filter(date__lt=timezone.now().date() - datetime.timedelta(days=30)) # pylint: disable=no-member
+    context['articles'] = Article.objects.filter( # pylint: disable=no-member
+      date__gte=timezone.now().date() - datetime.timedelta(days=30)
+    )
+    context['archives'] = Article.objects.filter( # pylint: disable=no-member
+      date__lt=timezone.now().date() - datetime.timedelta(days=30)
+    )
+    context['tags'] = Article.objects.values('tag__id', 'tag__name').annotate(count=Count('tag__name')).order_by('-count', 'tag__name') # pylint: disable=no-member
+
     return context
 
 class ArticleDetail(generic.DetailView):
@@ -32,6 +39,11 @@ class ArchivedArticle(generic.MonthArchiveView): # pylint: disable=too-many-ance
   date_field = 'date'
   template_name = 'home/archive.html'
   context_object_name = 'articles'
+
+class ArticleByTag(generic.DetailView):
+  """ Article list by tag """
+  model = Tag
+  template_name = 'home/tag.html'
 
 def contact_view(request):
   """ Send message from contact form """

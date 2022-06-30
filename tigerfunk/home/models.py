@@ -3,12 +3,17 @@
 import datetime
 from django.db import models
 from django.utils import timezone
+from django.urls import reverse
 
 class Tag(models.Model):
   """ A tag """
   name = models.CharField(max_length=15)
 
-  class Meta:
+  def get_absolute_url(self):
+    return reverse('tag', args=[str(self.id)])
+
+  class Meta: # pylint: disable=too-few-public-methods
+    """ Ordering """
     ordering = ['name']
 
   def __str__(self):
@@ -20,7 +25,6 @@ class Article(models.Model):
   date = models.DateField('date de publication')
   entry = models.TextField()
   tag = models.ManyToManyField(Tag)
-
 
   @property
   def recently_published(self):
@@ -35,8 +39,8 @@ class Article(models.Model):
     now = timezone.now().date()
     return self.date < now - datetime.timedelta(days=30)
 
-  class Meta:
-    """ Order """
+  class Meta: # pylint: disable=too-few-public-methods
+    """ Ordering """
     ordering = ['-date']
 
   def __str__(self):

@@ -78,6 +78,26 @@ h1, h2 {
   font-weight: bolder;
 }
 
+.tag-btn {
+  background: purple;
+  color: white;
+  padding: 2px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: .25s ease-in-out;
+  font-variant: small-caps;
+}
+
+.tag-btn:hover {
+  background: white;
+  color: purple;
+  padding: 2px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: .25s ease-in;
+  font-variant: small-caps;
+}
+
 hr {
   border: 1px solid;
 }
@@ -117,6 +137,7 @@ main a:visited {
   padding: 4px;
   border-radius: 4px;
   transition: .5s ease-in-out;
+  border: none;
 }
 
 #btn-back:hover {
@@ -126,6 +147,7 @@ main a:visited {
   padding: 4px;
   border-radius: 4px;
   transition: .5s;
+  border: none;
 }
 
 label {
