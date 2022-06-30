@@ -4,11 +4,23 @@ import datetime
 from django.db import models
 from django.utils import timezone
 
+class Tag(models.Model):
+  """ A tag """
+  name = models.CharField(max_length=15)
+
+  class Meta:
+    ordering = ['name']
+
+  def __str__(self):
+    return f'{self.name}'
+
 class Article(models.Model):
   """ An article """
   title = models.CharField(max_length=100)
   date = models.DateField('date de publication')
   entry = models.TextField()
+  tag = models.ManyToManyField(Tag)
+
 
   @property
   def recently_published(self):
