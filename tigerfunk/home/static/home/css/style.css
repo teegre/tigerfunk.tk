@@ -163,12 +163,12 @@ label {
 
 input[type="text"], input[type="email"] {
   display: inline-block;  
-  width: -moz-available;
+  width: 100%;
 }
 
 textarea {
   display: inline-block;
-  width: -moz-available;
+  width: 100%;
   resize: none;
 }
 
@@ -192,7 +192,7 @@ input[type="submit"]:hover {
 
 .form-div {
   background: lavender;
-  padding: 12px
+  padding: 12px;
 }
 
 main pre code {
