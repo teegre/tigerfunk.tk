@@ -7,7 +7,7 @@
       <hr>
       <ul>
       {% for article in tag.article_set.get_queryset %}
-        <li>{{ article.date|date:'Ymd' }} <a href="{% url 'home:detail' article.id %}"><strong>{{ article.title }}</strong></a></li>
+        <li><span class="a-date">{{ article.date|date:'Ymd' }}</span> <a href="{% url 'home:detail' article.id %}"><strong>{{ article.title }}</strong></a></li>
       {% empty %}
         <li><strong></strong></li>
       {% endfor %}

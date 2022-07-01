@@ -114,6 +114,11 @@ main ul {
   display: contents;
 }
 
+.a-date {
+  font-family: Monospace;
+  
+}
+
 main a {
   color: purple;
   text-decoration: none;

@@ -20,7 +20,7 @@
         <ul>
         {% for article in articles %}
           {% if article.recently_published %}
-          <li>{{ article.date|date:'Ymd' }} <a href="{% url 'home:detail' article.id %}"><strong>{{ article.title }}</strong></a></li>
+          <li><span class="a-date">{{ article.date|date:'Ymd' }}</span> <a href="{% url 'home:detail' article.id %}"><strong>{{ article.title }}</strong></a></li>
           {% endif %}
         {% empty %}
           <li><strong>Nihil novi sub sole.</strong></li>
