@@ -3,14 +3,10 @@
 import datetime
 from django.db import models
 from django.utils import timezone
-from django.urls import reverse
 
 class Tag(models.Model):
   """ A tag """
   name = models.CharField(max_length=15)
-
-  def get_absolute_url(self):
-    return reverse('tag', args=[str(self.id)])
 
   class Meta: # pylint: disable=too-few-public-methods
     """ Ordering """
