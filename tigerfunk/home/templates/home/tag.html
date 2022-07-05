@@ -1,7 +1,7 @@
 {% extends 'home/base.html' %}
 {% block title %}tigerfunk.tk [{{ tag.name }}]{% endblock %}
 {% block body %}
-      <h1><b>{{ tag.name|upper }}</b></h1>
+      <h1><b>ÉTIQUETTE:{{ tag.name|upper }}</b></h1>
       <main>
       Publications étiquetées <span class="tag-btn">{{ tag.name }}</span>
       <hr>
@@ -12,5 +12,7 @@
         <li><strong></strong></li>
       {% endfor %}
       </ul>
+      <hr>
+      <button id="btn-back" type="button" onclick="history.back()">Retour</button>
     </main>
 {% endblock %}

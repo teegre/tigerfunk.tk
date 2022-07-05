@@ -2,6 +2,7 @@
 {% block title %}tigerfunk.tk [home]{% endblock %}
 {% block body %}
       <h1><b style="font-variant: small-caps;">TIGERFUNK.TK</b> 500mg</h1>
+      <hr>
       <h2><b>Synthèse</b></h2>
       {% for tag in tags %}
         <a class="tag-btn" href="{% url 'home:tag' tag.tag__id %}">{{ tag.tag__name }}</b>({{ tag.count }})</a>
