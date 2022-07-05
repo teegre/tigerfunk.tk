@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  python:
+    container_name: python
+    build:
+      context: .
+      dockerfile: Dockerfile-python
+    volumes:
+      - static_volume:/home/tigerfunk/tigerfunk.tk/staticfiles
+      - media_volume:/home/tigerfunk/tigerfunk.tk/mediafiles
+    expose:
+      - "8000"
+  nginx:
+    container_name: nginx
+    build:
+      context: .
+      dockerfile: Dockerfile-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - python
+    networks:
+      - nginx_network
+
+networks:
+  nginx_network:
+    driver: bridge
+
+volumes:
+  static_volume:
+  media_volume:
