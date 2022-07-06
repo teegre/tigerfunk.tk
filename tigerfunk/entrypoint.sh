@@ -2,7 +2,7 @@
 
 set -e
 
-./manage.py makemigrations
-./manage.py migrate
-./manage.py collectstatic --noinput
-gunicorn -b unix:/home/tigerfunk/tigerfunk.tk/tigerfunk/gunicorn.sock tigerfunk.wsgi:application
+./manage.py migrate --no-input
+./manage.py collectstatic --no-input
+
+gunicorn tigerfunk.wsgi:application --bind "0.0.0.0:8080"

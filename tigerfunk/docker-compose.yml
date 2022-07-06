@@ -1,35 +1,57 @@
 version: "3.8"
 
 services:
-  python:
-    container_name: python
-    build:
-      context: .
-      dockerfile: Dockerfile-python
+  tigerfunk_django:
     volumes:
-      - static_volume:/home/tigerfunk/tigerfunk.tk/staticfiles
-      - media_volume:/home/tigerfunk/tigerfunk.tk/mediafiles
-    expose:
-      - 8000
-    networks:
-      - nginx_network
-  nginx:
-    container_name: nginx
+      - static:/static
+    env_file:
+      - .env
     build:
       context: .
-      dockerfile: Dockerfile-nginx
     ports:
-      - 80:80
-      - 443:443
+      - "8080:8080"
+  nginx:
+    build: ./nginx
+    volumes:
+      - static:/static
+    ports:
+      - "80:80"
     depends_on:
-      - python
-    networks:
-      - nginx_network
-
-networks:
-  nginx_network:
-    driver: bridge
+      - tigerfunk
 
 volumes:
-  static_volume:
-  media_volume:
+  static:
+
+  # services:
+  #   python:
+  #     container_name: python
+  #     build:
+  #       context: .
+  #       dockerfile: Dockerfile-python
+  #     volumes:
+  #       - static_volume:/home/tigerfunk/tigerfunk.tk/staticfiles
+  #       - media_volume:/home/tigerfunk/tigerfunk.tk/mediafiles
+  #     expose:
+  #       - 8000
+  #     networks:
+  #       - nginx_network
+  #   nginx:
+  #     container_name: nginx
+  #     build:
+  #       context: .
+  #       dockerfile: Dockerfile-nginx
+  #     ports:
+  #       - 80:80
+  #       - 443:443
+  #     depends_on:
+  #       - python
+  #     networks:
+  #       - nginx_network
+  # 
+  # networks:
+  #   nginx_network:
+  #     driver: bridge
+  # 
+  # volumes:
+  #   static_volume:
+  #   media_volume:

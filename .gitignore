@@ -6,3 +6,4 @@ db.sqlite3
 __pycache__
 tigerfunk/home/static/home/css/bootstrap*
 tigerfunk/home/static/home/js/bootstrap*
+tigerfunk/home/migrations
