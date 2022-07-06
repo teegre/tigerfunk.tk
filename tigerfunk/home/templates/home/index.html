@@ -7,7 +7,7 @@
       {% for tag in tags %}
         <a class="tag-btn" href="{% url 'home:tag' tag.tag__id %}">{{ tag.tag__name }}</b>({{ tag.count }})</a>
       {% empty %}
-        <a class="tag-btn" href="#"><b>Null</b>(0)</a>
+        Pas de synthèse.
       {% endfor %}
       <h3><b>Classification :</b></h3>
       <p style="font-variant: small-caps;">
