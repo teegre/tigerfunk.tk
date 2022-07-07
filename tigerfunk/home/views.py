@@ -3,6 +3,8 @@ import datetime
 from django.utils import timezone
 from django.views import generic
 from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.syndication.views import Feed
+from django.urls import reverse
 from django.shortcuts import render
 from django.core.mail import send_mail, BadHeaderError
 from django.contrib import messages
@@ -23,7 +25,11 @@ class HomeView(generic.ListView):
     context['archives'] = Article.objects.filter( # pylint: disable=no-member
       date__lt=timezone.now() - datetime.timedelta(days=30)
     )
-    context['tags'] = Article.objects.values('tag__id', 'tag__name').annotate(count=Count('tag__name')).order_by('-count', 'tag__name') # pylint: disable=no-member
+   # pylint: disable=no-member
+    context['tags'] = Article.objects.values(
+        'tag__id', 'tag__name').annotate(count=Count(
+          'tag__name')).order_by(
+              '-count', 'tag__name')
 
     return context
 
@@ -64,3 +70,24 @@ def contact_view(request):
     form = ContactForm()
 
   return render(request, 'home/contact.html', {'form': form})
+
+class LatestEntriesFeed(Feed):
+  """RSS feed"""
+  title = 'Tigerfunk.tk 500mg'
+  link = ''
+  description = 'Liste des dernières publications.'
+
+  def items(self):
+    """An article entry"""
+    return Article.objects.order_by('-date')[:15] # pylint: disable=no-member
+
+  def item_title(self, item):
+    """Article title"""
+    return item.title
+
+  def item_pubdate(self, item):
+    """Article publiqhed date"""
+    return item.date
+
+  def item_link(self, item):
+    return reverse('home:detail', args=[item.pk])

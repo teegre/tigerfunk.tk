@@ -1,7 +1,16 @@
 """home URL Configuration"""
 
 from django.urls import path
+from django.contrib.sitemaps import GenericSitemap
+from django.contrib.sitemaps.views import sitemap
+from home.models import Article
 from . import views
+
+
+info_dict = {
+  'queryset': Article.objects.all(),
+  'date_field': 'date',
+}
 
 app_name = 'home'
 urlpatterns = [
@@ -10,4 +19,8 @@ urlpatterns = [
   path('<int:year>/<int:month>/', views.ArchivedArticle.as_view(month_format='%m'), name='archive'),
   path('tag/<int:pk>/', views.ArticleByTag.as_view(), name='tag'),
   path('contact/', views.contact_view, name='contact'),
+  path('feed/', views.LatestEntriesFeed(), name='feed'),
+  path('sitemap', sitemap,
+    {'sitemaps': {'blog': GenericSitemap(info_dict, priority=0.6)}},
+    name='django.contrib.sitemaps.views.sitemap'),
 ]

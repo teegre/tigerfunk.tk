@@ -109,6 +109,11 @@ footer, .date {
   border-radius: 4px;
 }
 
+footer a {
+  color: whitesmoke;
+  text-decoration: underline dotted;
+  font-variant: small-caps;
+}
 main ul {
   list-style: none;
   display: contents;
