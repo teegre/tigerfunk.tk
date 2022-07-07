@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
     'django.contrib.staticfiles',
     'home',
 ]
@@ -55,6 +57,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'tigerfunk.urls'
+
+SITE_ID = 1
 
 TEMPLATES = [
     {
