@@ -25,7 +25,11 @@ class HomeView(generic.ListView):
     context['archives'] = Article.objects.filter( # pylint: disable=no-member
       date__lt=timezone.now() - datetime.timedelta(days=30)
     )
-    context['tags'] = Article.objects.values('tag__id', 'tag__name').annotate(count=Count('tag__name')).order_by('-count', 'tag__name') # pylint: disable=no-member
+   # pylint: disable=no-member
+    context['tags'] = Article.objects.values(
+        'tag__id', 'tag__name').annotate(count=Count(
+          'tag__name')).order_by(
+              '-count', 'tag__name')
 
     return context
 
