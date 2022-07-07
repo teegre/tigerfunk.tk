@@ -18,10 +18,10 @@ class HomeView(generic.ListView):
   def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)
     context['articles'] = Article.objects.filter( # pylint: disable=no-member
-      date__gte=timezone.now().date() - datetime.timedelta(days=30)
+      date__gte=timezone.now() - datetime.timedelta(days=30)
     )
     context['archives'] = Article.objects.filter( # pylint: disable=no-member
-      date__lt=timezone.now().date() - datetime.timedelta(days=30)
+      date__lt=timezone.now() - datetime.timedelta(days=30)
     )
     context['tags'] = Article.objects.values('tag__id', 'tag__name').annotate(count=Count('tag__name')).order_by('-count', 'tag__name') # pylint: disable=no-member
 
@@ -35,7 +35,7 @@ class ArticleDetail(generic.DetailView):
 
 class ArchivedArticle(generic.MonthArchiveView): # pylint: disable=too-many-ancestors
   """ Archived article view """
-  queryset = Article.objects.filter(date__lt=timezone.now().date() - datetime.timedelta(days=30)) # pylint: disable=no-member
+  queryset = Article.objects.filter(date__lt=timezone.now() - datetime.timedelta(days=30)) # pylint: disable=no-member
   date_field = 'date'
   template_name = 'home/archive.html'
   context_object_name = 'articles'
