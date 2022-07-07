@@ -3,6 +3,7 @@
 import datetime
 from django.db import models
 from django.utils import timezone
+from django.urls import reverse
 
 class Tag(models.Model):
   """ A tag """
@@ -38,6 +39,9 @@ class Article(models.Model):
   class Meta: # pylint: disable=too-few-public-methods
     """ Ordering """
     ordering = ['-date']
+
+  def get_absolute_url(self):
+    return reverse('home:detail', args=[str(self.id)])
 
   def __str__(self):
     return f'{self.title}'
