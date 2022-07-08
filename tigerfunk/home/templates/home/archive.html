@@ -7,7 +7,7 @@
         <hr>
         <ul>
         {% for article in articles %}
-          <li><span class="a-date">{{ article.date|date:'Ymd' }}</span> <a href="{% url 'home:detail' article.id %}"><strong>{{ article.title }}</strong></a></li>
+          <li><span class="a-date">{{ article.date|date:'Ymd' }}</span> <a href="{% url 'detail' article.id %}"><strong>{{ article.title }}</strong></a></li>
         {% endfor %}
         </ul>
         <hr>

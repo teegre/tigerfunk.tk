@@ -5,7 +5,7 @@
       <hr>
       <h2><b>Synthèse</b></h2>
       {% for tag in tags %}
-        <a class="tag-btn" href="{% url 'home:tag' tag.tag__id %}">{{ tag.tag__name }}</b>({{ tag.count }})</a>
+        <a class="tag-btn" href="{% url 'tag' tag.tag__id %}">{{ tag.tag__name }}</b>({{ tag.count }})</a>
       {% empty %}
         Pas de synthèse.
       {% endfor %}
@@ -21,7 +21,7 @@
         <ul>
         {% for article in articles %}
           {% if article.recently_published %}
-          <li><span class="a-date">{{ article.date|date:'Ymd' }}</span> <a href="{% url 'home:detail' article.id %}"><strong>{{ article.title }}</strong></a></li>
+          <li><span class="a-date">{{ article.date|date:'Ymd' }}</span> <a href="{% url 'detail' article.id %}"><strong>{{ article.title }}</strong></a></li>
           {% endif %}
         {% empty %}
           <li><strong>Nihil novi sub sole.</strong></li>
@@ -33,7 +33,7 @@
         <ul>
         {% for month, arts in article_list %}
         {% with article=arts|first %}
-          <li><a href="{% url 'home:archive' article.date.year month %}"><strong>{{ article.date.year }}/{{ month }}</strong></a></li>
+          <li><a href="{% url 'archive' article.date.year month %}"><strong>{{ article.date.year }}/{{ month }}</strong></a></li>
         {% endwith %}
         {% empty %}
           <li><strong>Rien ici.</strong></li>
