@@ -29,50 +29,6 @@ nav div {
   background:  white;
 }
 
-nav ul li {
-  display: inline;
-  margin: 12px;
-}
-
-.nav-brand {
-  background: purple;
-  color: whitesmoke;
-  font-size: 1.1rem;
-  font-weight: lighter;
-  text-decoration: none;
-  margin-top: 11px;
-  margin-left: 8px;
-  margin-right: -24px;
-  border: 1px solid purple;
-  border-radius: 2px;
-  margin-bottom: auto;
-  padding: 4px;
-}
-
-.nav-link {
-  color: purple;
-  margin: px;
-  padding: 4px;
-  text-decoration: none;
-  transition: 0.5s ease-in-out;
-  border-radius: 4px;
-}
-
-.nav-link:hover {
-  background: purple;
-  color: #FFFFFF;
-  border-radius: 4px;
-  transition: .5s ease-out;
-}
-
-.nav-link.active {
-  text-align: center;
-  background: purple;
-  color: #FFFFFF;
-  font-weight: bolder;
-  border-radius: 4px;
-}
-
 h1, h2 {
   color: purple;
   font-weight: bolder;
@@ -100,6 +56,7 @@ h1, h2 {
 
 hr {
   border: 1px solid;
+  color: purple;
 }
 
 footer, .date {
@@ -161,46 +118,12 @@ main a:visited {
   border: none;
 }
 
-label {
-  display: inline-block;
-  font-size: smaller;
-  font-weight: bold;
-}
-
-input[type="text"], input[type="email"] {
-  display: inline-block;  
-  width: 100%;
-}
-
-textarea {
-  display: inline-block;
-  width: 100%;
-  resize: none;
-}
-
-input[type="submit"] {
-  width: 100%;
-  background: purple;
-  border: none;
-  color: white;
-  padding: 4px;
-  border-radius: 4px;
-  margin-top: 8px;
-  cursor: pointer;
-  transition: .25s ease-in-out;
-}
-
-input[type="submit"]:hover {
-  background: white;
-  color: purple;
-  transition: .25s ease-in;
-}
-
-.form-div {
-  background: lavender;
-  padding: 12px;
-}
-
 main pre code {
   font-size: 1rem;
+}
+
+iframe {
+  width: 100%;
+  max-width: 560px;
+  max-height: 315px;
 }
