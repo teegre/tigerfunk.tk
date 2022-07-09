@@ -41,7 +41,7 @@ class Article(models.Model):
     ordering = ['-date']
 
   def get_absolute_url(self):
-    return reverse('home:detail', args=[str(self.id)])
+    return reverse('detail', args=[str(self.id)])
 
   def __str__(self):
     return f'{self.title}'
