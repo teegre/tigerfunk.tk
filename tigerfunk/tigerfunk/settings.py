@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = bool(os.getenv('DEBUG') == 'True')
 
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ['http://0.0.0.0/*',]
+CSRF_TRUSTED_ORIGINS = ['http://tigerfunk.tk/*','https://tigerfunk.tk/*', 'http://0.0.0.0/*']
 
 # Application definition
 
