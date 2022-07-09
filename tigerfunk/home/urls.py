@@ -4,6 +4,7 @@ from django.urls import path
 from django.contrib.sitemaps import GenericSitemap
 from django.contrib.sitemaps.views import sitemap
 from home.models import Article
+
 from . import views
 
 
@@ -23,7 +24,7 @@ urlpatterns = [
   path('tag/<int:pk>/', views.ArticleByTag.as_view(), name='tag'),
   path('contact/', views.contact_view, name='contact'),
   path('feed/', views.LatestEntriesFeed(), name='feed'),
-  path('sitemap', sitemap,
+  path('sitemap/', sitemap,
     {'sitemaps': {'blog': GenericSitemap(info_dict, priority=0.6)}},
     name='django.contrib.sitemaps.views.sitemap'),
 ]

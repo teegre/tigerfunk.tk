@@ -86,8 +86,8 @@ class LatestEntriesFeed(Feed):
     return item.title
 
   def item_pubdate(self, item):
-    """Article publiqhed date"""
+    """Article published date"""
     return item.date
 
   def item_link(self, item):
-    return reverse('home:detail', args=[item.pk])
+    return reverse('detail', args=[item.pk])
