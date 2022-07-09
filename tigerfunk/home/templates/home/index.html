@@ -33,7 +33,7 @@
         <ul>
         {% for month, arts in article_list %}
         {% with article=arts|first %}
-          <li><a href="{% url 'archive' article.date.year month %}"><strong>{{ article.date.year }}/{{ month }}</strong></a></li>
+        <li><a class="a-date" href="{% url 'archive' article.date.year month %}"><strong>{{ article.date|date:'Y/m' }}</strong></a></li>
         {% endwith %}
         {% empty %}
           <li><strong>Rien ici.</strong></li>
