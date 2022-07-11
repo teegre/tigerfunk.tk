@@ -2,4 +2,4 @@
 
 Python Django version of my personal website.
 
-This is work in progress.
+It's online since Sunday 2022/07/10!
