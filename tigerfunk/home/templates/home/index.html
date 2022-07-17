@@ -5,13 +5,13 @@
       <hr>
       <h2><b>Synthèse</b></h2>
       <h3><b>Substances actives</b></h3>
+      <div class="tag-bar">
       {% for tag in tags %}
         <a class="tag-btn" href="{% url 'tag' tag.tag__id %}">{{ tag.tag__name }}({{ tag.count }})</a>
       {% empty %}
         <small>Aucune</small>
       {% endfor %}
-      <br>
-      <br>
+      </div>
       <small><strong>⚠️ Ne pas dépasser la dose prescrite.</strong></small>
       <main>
         <h2><b>Publications</b></h2>
