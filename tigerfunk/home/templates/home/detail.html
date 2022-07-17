@@ -9,6 +9,13 @@
     <hr>
     <article>{{ article.entry|safe }}</article>
     <hr>
-    <button id="btn-back" type="button" onclick="history.back()">Retour</button>
+    <div class="tag-bar">
+      <button id="btn-back" type="button" onclick="history.back()">&vartriangleleft;&vartriangleleft;&vartriangleleft;</button>
+      <span class="vl"></span>
+      {% for tag in article.tag.get_queryset %}
+      <a class="tag-btn" href="{% url 'tag' tag.id %}">{{ tag.name }}</a>
+      {% endfor %}
+
+    </div>
   </main>
 {% endblock %}

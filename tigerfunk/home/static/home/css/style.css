@@ -35,10 +35,23 @@ h1, h2, h3 {
   letter-spacing: -2px;
 }
 
+.tag-bar {
+  display: flex;
+  flex-flow: row;
+  align-content: space-between;
+}
+
+.vl {
+  border-left: 2px solid purple;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
 .tag-btn {
   background: purple;
   color: white;
   padding: 2px;
+  margin-right: 2px;
   border-radius: 4px;
   text-decoration: none;
   transition: .25s ease-in-out;
@@ -48,11 +61,7 @@ h1, h2, h3 {
 .tag-btn:hover {
   background: white;
   color: purple;
-  padding: 2px;
-  border-radius: 4px;
-  text-decoration: none;
   transition: .25s ease-in;
-  font-variant: small-caps;
 }
 
 hr {
@@ -95,27 +104,23 @@ main a:hover {
 }
 
 main a:visited {
-  color: lavenderblush;
+  color: darkmagenta;
 }
 
 #btn-back {
   background: purple;
   color: white;
-  font-weight: bold;
-  padding: 4px;
+  padding: 2px;
   border-radius: 4px;
   transition: .5s ease-in-out;
   border: none;
+  font-variant: small-caps;
 }
 
 #btn-back:hover {
   background: white;
   color: purple;
-  font-weight: bold;
-  padding: 4px;
-  border-radius: 4px;
   transition: .5s;
-  border: none;
 }
 
 .code-div {
