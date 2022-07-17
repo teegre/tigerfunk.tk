@@ -6,7 +6,7 @@
       <h2><b>Synthèse</b></h2>
       <h3><b>Substances actives</b></h3>
       {% for tag in tags %}
-        <a class="tag-btn" href="{% url 'tag' tag.tag__id %}">{{ tag.tag__name }}</b>({{ tag.count }})</a>
+        <a class="tag-btn" href="{% url 'tag' tag.tag__id %}">{{ tag.tag__name }}({{ tag.count }})</a>
       {% empty %}
         <small>Aucune</small>
       {% endfor %}
