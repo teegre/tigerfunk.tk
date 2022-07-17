@@ -27,6 +27,7 @@ h1, h2, h3 {
   font-family: Roboto, sans-serif;
   color: purple;
   font-weight: bolder;
+  margin-bottom: auto;
 }
 
 .logo {
@@ -37,8 +38,9 @@ h1, h2, h3 {
 
 .tag-bar {
   display: flex;
-  flex-flow: row;
+  flex-wrap:wrap;
   align-content: space-between;
+  margin-top: 0.5rem;
 }
 
 .vl {
@@ -51,6 +53,7 @@ h1, h2, h3 {
   background: purple;
   color: white;
   padding: 2px;
+  margin-top: 2px;
   margin-right: 2px;
   border-radius: 4px;
   text-decoration: none;
@@ -62,6 +65,22 @@ h1, h2, h3 {
   background: white;
   color: purple;
   transition: .25s ease-in;
+}
+
+#btn-back {
+  background: purple;
+  color: white;
+  padding: 4px;
+  border-radius: 4px;
+  transition: .5s ease-in-out;
+  border: none;
+  font-variant: small-caps;
+}
+
+#btn-back:hover {
+  background: white;
+  color: purple;
+  transition: .5s;
 }
 
 hr {
@@ -81,15 +100,19 @@ footer a {
   text-decoration: underline dotted;
   font-variant: small-caps;
 }
+
 main ul {
   list-style: none;
   display: contents;
 }
 
+.date {
+  margin-top: 0.5rem;
+}
+
 .a-date {
-  font-family: monospace;
+  font-family: Monospace;
   font-size: larger;
-  
 }
 
 main a {
@@ -104,36 +127,20 @@ main a:hover {
 }
 
 main a:visited {
-  color: darkmagenta;
+  color: darkgoldenrod;
 }
 
-#btn-back {
-  background: purple;
-  color: white;
-  padding: 2px;
-  border-radius: 4px;
-  transition: .5s ease-in-out;
-  border: none;
-  font-variant: small-caps;
+main pre code {
+  font-size: 1rem;
 }
 
-#btn-back:hover {
-  background: white;
-  color: purple;
-  transition: .5s;
-}
-
-.code-div {
-  font-family: "Lucida Console", "Courier New", monospace;
-  letter-spacing: 0;
-  font-size: 0.75rem;
-  background: lavenderblush;
-  padding: 8px;
-  border-radius: 4px;
+.video {
+  text-align: center;
 }
 
 iframe {
   width: 100%;
   max-width: 560px;
   max-height: 315px;
+  border-color: purple;
 }

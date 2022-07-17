@@ -1,5 +1,5 @@
 {% extends 'home/base.html' %}
-{% block title %}tigerfunk.tk [{{ article.title }}]{% endblock %}
+{% block title %}tigerfunk.tk | {{ article.title }}{% endblock %}
 {% block body %}
   <h1>{{ article.title }}</h1>
   <main>
@@ -10,7 +10,7 @@
     <article>{{ article.entry|safe }}</article>
     <hr>
     <div class="tag-bar">
-      <button id="btn-back" type="button" onclick="history.back()">&vartriangleleft;&vartriangleleft;&vartriangleleft;</button>
+      <button id="btn-back" type="button" onclick="history.back()">retour</button>
       <span class="vl"></span>
       {% for tag in article.tag.get_queryset %}
       <a class="tag-btn" href="{% url 'tag' tag.id %}">{{ tag.name }}</a>
