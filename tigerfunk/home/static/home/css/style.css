@@ -3,7 +3,6 @@ html {
   background: whitesmoke;
   color: darkmagenta;
   letter-spacing: -1px;
-  line-height: 1.5rem;
   max-width: 70ch;
   margin: auto;
 }
@@ -174,7 +173,6 @@ main pre code {
   font-family: monospace;
   font-size: 0.8rem;
   letter-spacing: initial;
-  line-height: unset;
 }
 
 main table {
