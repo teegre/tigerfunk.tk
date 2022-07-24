@@ -130,8 +130,66 @@ main a:visited {
   color: darkgoldenrod;
 }
 
+blockquote {
+  background: purple;
+  font-family: serif;
+  font-style: italic;
+  color: white;
+  border-left: 4px solid darkgray;
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+blockquote code, main code {
+  font-family: monospace;
+  font-style: initial;
+  background: white;
+  color: purple;
+  margin: 4px;
+  padding: 4px;
+}
+
+main code {
+  letter-spacing: 0;
+  background: lightgray;
+  font-size: 1em;
+}
+
+main pre {
+  background: lightgray;
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: scroll;
+}
+
 main pre code {
-  font-size: 1rem;
+  background: lightgray;
+  font-family: monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0px;
+  line-height: 1.2rem;
+}
+
+main table {
+  font-family: monospace;
+  letter-spacing: 0em;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+main td, main th {
+  border: 1px solid #ddd;
+}
+
+main table th {
+  background: purple;
+  color: whitesmoke;
+  text-align: left;
+  padding: 0.25rem;
+}
+
+main table tr:nth-child(odd) {
+  background: lightgray;
 }
 
 .video {
