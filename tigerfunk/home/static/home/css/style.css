@@ -3,7 +3,6 @@ html {
   background: whitesmoke;
   color: darkmagenta;
   letter-spacing: -1px;
-  line-height: 1.5rem;
   max-width: 70ch;
   margin: auto;
 }
@@ -136,10 +135,6 @@ main a:visited {
   color: darkgoldenrod;
 }
 
-main pre code {
-  font-size: 1rem;
-}
-
 blockquote {
   background: purple;
   font-family: serif;
@@ -162,7 +157,6 @@ blockquote code, main code {
 
 main code {
   letter-spacing: 0;
-  background: lightgray;
   font-size: 1em;
 }
 
@@ -179,7 +173,6 @@ main pre code {
   font-family: monospace;
   font-size: 0.8rem;
   letter-spacing: initial;
-  line-height: unset;
 }
 
 main table {
