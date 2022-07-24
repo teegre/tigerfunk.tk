@@ -12,9 +12,14 @@
         <small>Aucune</small>
       {% endfor %}
       </div>
-      <small><strong>⚠️ Ne pas dépasser la dose prescrite.</strong></small>
+      <h2><b>Mode d'administration</b></h2>
+      Voie auditive &#128066;&#127995 et/ou voie visuelle &#128065;.
+      <h2><b>Précautions d'emploi</b></h2>
+      &dash; Veillez à regarder les <b>vidéos</b> dans une <b>pièce bien éclairée</b>.<br>
+      &dash; Ecoutez la <b>musique</b> à un <b>volume modéré</b>.<br><br>
+      <small><strong>⚠️ Le dépassement éventuel des doses prescrites ne présente aucunement un danger pour la santé.</strong></small>
       <main>
-        <h2><b>Publications</b></h2>
+        <h2><b>Contenu</b></h2>
         <small>À consommer dans les 30 jours.</small>
         <hr>
         <ul>
@@ -26,8 +31,8 @@
           <li><strong>Nihil novi sub sole.</strong></li>
         {% endfor %}
         </ul>
-        <h2><b>Publications expirées</b></h2>
-        <small>Publications ayant dépassé la durée limite de 30 jours.</small>
+        <h2><b>Contenu expiré</b></h2>
+        <small>Contenu ayant dépassé la durée limite de 30 jours.</small>
         <hr>
         {% regroup archives by date.month as article_list %}
         <ul>
