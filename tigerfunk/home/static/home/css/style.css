@@ -3,6 +3,7 @@ html {
   background: whitesmoke;
   color: darkmagenta;
   letter-spacing: -1px;
+  line-height: 1.5rem;
   max-width: 70ch;
   margin: auto;
 }
@@ -23,11 +24,16 @@ div .message {
   cursor: pointer;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5, h6 {
   font-family: Roboto, sans-serif;
   color: purple;
   font-weight: bolder;
   margin-bottom: auto;
+}
+
+h3, h4, h5, h6 {
+  border-left: 4px solid purple;
+  padding: 1rem;
 }
 
 .logo {
@@ -89,7 +95,7 @@ hr {
 }
 
 footer, .date {
-  background: purple;  
+  background: purple;
   color: whitesmoke;
   padding: 4px;
   border-radius: 4px;
@@ -135,7 +141,7 @@ blockquote {
   font-family: serif;
   font-style: italic;
   color: white;
-  border-left: 4px solid darkgray;
+  border-left: 8px solid darkgray;
   border-radius: 4px;
   padding: 1rem;
 }
@@ -143,15 +149,15 @@ blockquote {
 blockquote code, main code {
   font-family: monospace;
   font-style: initial;
-  background: white;
+  background: lightgray;
+  border-radius: 4px;
   color: purple;
   margin: 4px;
-  padding: 4px;
+  padding: 3px;
 }
 
 main code {
   letter-spacing: 0;
-  background: lightgray;
   font-size: 1em;
 }
 
@@ -159,6 +165,7 @@ main pre {
   background: lightgray;
   padding: 1rem;
   border-radius: 4px;
+  line-height: 1.1rem;
   overflow-x: scroll;
 }
 
@@ -166,8 +173,8 @@ main pre code {
   background: lightgray;
   font-family: monospace;
   font-size: 0.8rem;
-  letter-spacing: 0px;
-  line-height: 1.2rem;
+  letter-spacing: initial;
+  line-height: unset;
 }
 
 main table {
