@@ -36,6 +36,33 @@ h3, h4, h5, h6 {
   padding: 1rem;
 }
 
+@keyframes manpage {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.man-trigger ~ .man-page {
+  display: none;
+}
+
+.man-trigger ~ .man-page {
+  display: none;
+}
+
+.man-trigger:checked ~ .man-page {
+  display: initial;
+  animation: manpage 2s ease-out;
+}
+
+.man-trigger {
+  display: none;
+}
+
+.man-trigger-text {
+  text-decoration: underline dotted;
+  cursor: alias;
+}
+
 .logo {
   font-size: larger;
   font-weight: bolder;
