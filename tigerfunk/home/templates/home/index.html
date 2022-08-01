@@ -1,12 +1,12 @@
 {% extends 'home/base.html' %}
 {% block title %}tigerfunk.tk [home]{% endblock %}
 {% block body %}
-      <h1><span class="logo">TIGERFUNK.TK</span> 500mg</h1>
+      <h1 class="crt"><span class="logo">TIGERFUNK.TK</span> 500mg</h1>
       <hr>
       <h2><b>Substances actives</b></h2>
       <div class="tag-bar">
       {% for tag in tags %}
-        <a class="tag-btn" href="{% url 'tag' tag.tag__id %}">{{ tag.tag__name }}({{ tag.count }})</a>
+      <div class="tag-btn-count"><a class="tag-btn" href="{% url 'tag' tag.tag__id %}">{{ tag.tag__name }}<div class="tag-count">{{ tag.count }}</div></a></div>
       {% empty %}
         <small>Aucune</small>
       {% endfor %}
