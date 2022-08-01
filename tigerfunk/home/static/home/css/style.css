@@ -124,26 +124,26 @@ h3, h4, h5, h6 {
   margin-right: 4px;
 }
 
-.tag-btn-count {
-  display: inline-flex;
-  flex-direction: row;
-}
-
-.tag-count {
-  background: whitesmoke;
-  color: purple;
-  font-size: x-small;
-  font-weight: bold;
-  text-align: center;
-  border-radius: 8px;
-  padding: 2px;
-  margin-left: 4px;
-  margin-right: 2px;
+.tag-bar .tag-btn-count {
+  display: inline-grid;
+  align-items: revert-layer;
 }
 
 .tag-btn .tag-count {
   display: inline-flex;
-  vertical-align: middle;
+  vertical-align: text-top;
+}
+
+.tag-count {
+  font-family: monospace, sans-serif;
+  font-size: x-small;
+  font-weight: bolder;
+  background: whitesmoke;
+  color: purple;
+  border-radius: 8px;
+  padding: 4px;
+  margin-left: 4px;
+  margin-right: 2px;
 }
 
 .tag-btn {
