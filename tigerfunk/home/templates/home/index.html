@@ -6,19 +6,27 @@
       <h2><b>Substances actives</b></h2>
       <div class="tag-bar">
       {% for tag in tags %}
-      <div class="tag-btn-count"><a class="tag-btn" href="{% url 'tag' tag.tag__id %}">{{ tag.tag__name }}<div class="tag-count">{{ tag.count }}</div></a></div>
+        <div class="tag-btn-count"><a class="tag-btn" href="{% url 'tag' tag.tag__id %}">{{ tag.tag__name }}<div class="tag-count">{{ tag.count }}</div></a></div>
       {% empty %}
         <small>Aucune</small>
       {% endfor %}
       </div>
-      <h2><b>Mode d'administration</b></h2>
-      Voie auditive &#128066;&#127995; et/ou voie visuelle &#128065;.
-      <h2><b>Posologie</b></h2>
-      <b>1</b> contenu <strong>minimum par jour</strong> <i>sans limite de durée</i>.
-      <h2><b>Précautions d'emploi</b></h2>
-      &dash; Veillez à regarder les <b>vidéos</b> dans une <b>pièce bien éclairée</b>.<br>
-      &dash; Ecoutez la <b>musique</b> à un <b>volume modéré</b>.<br><br>
-      <small><strong>⚠️ Le dépassement éventuel des doses prescrites ne présente aucunement un danger pour la santé.</strong></small>
+      <hr>
+      <input type="checkbox" class="man-trigger" id="cbm"><label for="cbm" class="man-trigger-text"><h2><b>Mode d'emploi</b></h2></label>
+      <div class="man-page">
+        <b><u>Mode d'administration</u></b><br>
+        &circledcirc; voie visuelle &#128065;.<br>
+        &circledcirc; voie auditive &#128066;&#127995;<br>
+        <br>
+        <b><u>Posologie</u></b><br>
+        &circledcirc; <b>1</b> contenu <strong>minimum par jour</strong> <i>sans limite de durée</i>.<br>
+        <br>
+        <b><u>Précautions d'emploi</u></b><br>
+        &circledcirc; Veillez à regarder les <b>vidéos</b> dans une <b>pièce bien éclairée</b>.<br>
+        &circledcirc; Ecoutez la <b>musique</b> à un <b>volume modéré</b>.<br>
+        <br>
+        <small><strong>⚠️ Le dépassement éventuel des doses prescrites ne présente aucunement un danger pour la santé.</strong></small>
+      </div>
       <hr>
       <main>
         <h2><b>Contenu</b></h2>
@@ -33,6 +41,7 @@
           <li><strong>Nihil novi sub sole.</strong></li>
         {% endfor %}
         </ul>
+        <hr>
         <h2><b>Contenu expiré</b></h2>
         <small>Contenu ayant dépassé la durée limite de 30 jours.</small>
         <hr>
