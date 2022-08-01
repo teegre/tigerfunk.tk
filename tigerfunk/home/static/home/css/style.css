@@ -225,12 +225,12 @@ main a {
 }
 
 main a:hover {
-  color: grey;
+  color: blueviolet;
   transition: .25s;
 }
 
 main a:visited {
-  color: darkgoldenrod;
+  color: crimson;
 }
 
 blockquote {
