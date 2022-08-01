@@ -218,6 +218,12 @@ main ul {
   font-size: larger;
 }
 
+.content-link {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 main a {
   color: purple;
   text-decoration: none;
