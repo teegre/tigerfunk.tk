@@ -6,6 +6,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.syndication.views import Feed
 from django.urls import reverse
 from django.shortcuts import render
+from django.core.paginator import Paginator
 from django.core.mail import send_mail, BadHeaderError
 from django.contrib import messages
 from django.db.models import Count
@@ -46,30 +47,36 @@ class ArchivedArticle(generic.MonthArchiveView): # pylint: disable=too-many-ance
   template_name = 'home/archive.html'
   context_object_name = 'articles'
 
-class ArticleByTag(generic.DetailView):
+def articles_by_tag(request, pk):
   """ Article list by tag """
-  model = Tag
-  template_name = 'home/tag.html'
+  articles = Article.objects.filter(tag__id=pk)
+  tag = Tag.objects.get(pk=pk)
+  paginator = Paginator(articles, 15, orphans=2)
 
-def contact_view(request):
-  """ Send message from contact form """
-  if request.method == 'POST':
-    form = ContactForm(request.POST)
-    if form.is_valid():
-      subject = form.cleaned_data['subject']
-      message = form.cleaned_data['message']
-      sender = form.cleaned_data['sender']
-      recipients = ['info@tigerfunk.tk']
-      try:
-        send_mail(subject, message, sender, recipients)
-      except BadHeaderError:
-        return HttpResponse('Entête invalide...')
-      messages.success(request, 'Merci pour votre message !')
-      return HttpResponseRedirect('/home/')
-  else:
-    form = ContactForm()
+  page_number = request.GET.get('page')
+  page_obj = paginator.get_page(page_number)
 
-  return render(request, 'home/contact.html', {'form': form})
+  return render(request, 'home/tag.html', {'tag': tag, 'page_obj': page_obj})
+
+# def contact_view(request):
+#  """ Send message from contact form """
+#  if request.method == 'POST':
+#    form = ContactForm(request.POST)
+#    if form.is_valid():
+#      subject = form.cleaned_data['subject']
+#      message = form.cleaned_data['message']
+#      sender = form.cleaned_data['sender']
+#      recipients = ['info@tigerfunk.tk']
+#      try:
+#        send_mail(subject, message, sender, recipients)
+#      except BadHeaderError:
+#        return HttpResponse('Entête invalide...')
+#      messages.success(request, 'Merci pour votre message !')
+#      return HttpResponseRedirect('/home/')
+#  else:
+#    form = ContactForm()
+#
+#  return render(request, 'home/contact.html', {'form': form})
 
 class LatestEntriesFeed(Feed):
   """RSS feed"""
