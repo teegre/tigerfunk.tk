@@ -194,6 +194,18 @@ article ul {
   overflow: hidden;
 }
 
+.new {
+  font-size: x-small;
+  font-weight: bold;
+  font-variant: small-caps;
+  background: purple;
+  color: white;
+  padding: 0px 2px 0px 2px;
+  //border: 1px solid purple;
+  border-radius: 2px;
+  vertical-align: middle;
+}
+
 .archives {
   display: flex;
   flex-flow: column wrap;

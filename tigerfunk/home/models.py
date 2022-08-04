@@ -24,6 +24,12 @@ class Article(models.Model):
   tag = models.ManyToManyField(Tag)
 
   @property
+  def is_new(self):
+    """ Return True if article was published within current week """
+    now = timezone.now().date()
+    return self.date.date() > now - datetime.timedelta(days=7)
+
+  @property
   def recently_published(self):
     """ Return True if article was published recently """
     now = timezone.now().date()
