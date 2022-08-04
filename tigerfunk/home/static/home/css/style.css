@@ -196,18 +196,15 @@ article ul {
   column-gap: 8px;
   row-gap: 8px;
   padding-left: 0;
-  margin-top: 0;
   margin-bottom: 0;
-  width: 100%;
-  height: 130px;
-  white-space: nowrap;
+  height: 136px;
   overflow-x: scroll;
-  align-content: start;
 }
 
 .archive-item .a-date {
  background: lavenderblush;
   padding: 2px 2px 2px 2px;
+  /* border: 1px solid; */
   border-radius: 4px;
 }
 
@@ -303,4 +300,37 @@ iframe {
   max-width: 560px;
   max-height: 315px;
   border-color: purple;
+}
+
+.paginator {
+  display: flex;
+  align-items: center;
+}
+
+.page {
+  font-variant: small-caps;
+  font-size: small;
+  font-weight: bolder;
+  border: 1px solid purple;
+  padding: 2px 2px 2px 2px;
+  border-radius: 4px;
+  background: purple;
+  color: whitesmoke;
+}
+
+.page-btn {
+  background: lavenderblush;
+  font-variant: small-caps;
+  font-size: small;
+  padding: 2px;
+  margin-left: 4px;
+  border: 1px solid;
+  border-radius: 4px;
+  letter-spacing: 0;
+  
+}
+
+.inactive {
+  opacity: 0.5;
+  cursor: default;
 }
