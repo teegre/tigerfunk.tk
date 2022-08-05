@@ -10,7 +10,7 @@ from . import views
 
 
 info_dict = {
-  'queryset': Article.objects.all(),
+  'queryset': Article.objects.filter(hidden=False),
   'date_field': 'date',
 }
 
