@@ -10,13 +10,19 @@
   </head>
   <body>
     <div>
-    {% include 'home/messages.html' %}
-    {% block body %}
-    {% endblock %}
-    <hr>
-    <footer>
-      <span>© {% now 'Y' %} tigerfunk.tk / <a href="{% url 'index' %}">home</a> / <a href={% url 'feed' %}>rss</a> / <a href={% url 'django.contrib.sitemaps.views.sitemap' %}>sitemap</a></span>
-    </footer>
+      <header>
+        <div class="logo"><a class="logo-home" href="{% url 'index' %}">TIGERFUNK.TK</a> <span class="logo-mg">500mg</span></div>
+        <hr>
+      {% block header %}
+      {% endblock %}
+      </header>
+      {% include 'home/messages.html' %}
+      {% block body %}
+      {% endblock %}
+      <hr>
+      <footer>
+        <span>© {% now 'Y' %} tigerfunk.tk / <a href="{% url 'index' %}">home</a> / <a href={% url 'feed' %}>rss</a> / <a href={% url 'django.contrib.sitemaps.views.sitemap' %}>sitemap</a></span>
+      </footer>
     </div>
   </body>
 </html>

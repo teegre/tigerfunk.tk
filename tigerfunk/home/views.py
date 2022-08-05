@@ -10,7 +10,7 @@ from django.core.paginator import Paginator
 from django.core.mail import send_mail, BadHeaderError
 from django.contrib import messages
 from django.db.models import Count
-from .models import Tag, Article
+from .models import Tag, Article, get_random_message
 from .forms import ContactForm
 
 class HomeView(generic.ListView):
@@ -32,6 +32,8 @@ class HomeView(generic.ListView):
           'tag__name')).order_by(
               '-count', 'tag__name')
 
+    context['message'] = get_random_message()
+
     return context
 
 class ArticleDetail(generic.DetailView):
@@ -42,14 +44,19 @@ class ArticleDetail(generic.DetailView):
 
 class ArchivedArticle(generic.MonthArchiveView): # pylint: disable=too-many-ancestors
   """ Archived article view """
-  queryset = Article.objects.filter(date__lt=timezone.now() - datetime.timedelta(days=30)) # pylint: disable=no-member
+  queryset = Article.objects.filter(
+    date__lt=timezone.now() - datetime.timedelta(days=30)).filter(
+      hidden=False
+    ) # pylint: disable=no-member
   date_field = 'date'
   template_name = 'home/archive.html'
   context_object_name = 'articles'
 
 def articles_by_tag(request, pk):
   """ Article list by tag """
-  articles = Article.objects.filter(tag__id=pk)
+  articles = Article.objects.filter(
+    tag__id=pk).filter(
+      hidden=False)
   tag = Tag.objects.get(pk=pk)
   paginator = Paginator(articles, 15, orphans=2)
 
@@ -80,8 +87,8 @@ def articles_by_tag(request, pk):
 
 class LatestEntriesFeed(Feed):
   """RSS feed"""
-  title = 'Tigerfunk.tk 500mg'
-  link = ''
+  title = 'tigerfunk.tk'
+  link = 'https://tigerfunk.tk'
   description = 'Liste des dernières publications.'
 
   def items(self):

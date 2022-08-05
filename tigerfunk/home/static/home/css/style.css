@@ -11,6 +11,30 @@ html {
   margin: auto;
 }
 
+.logo {
+  display: flex;
+  align-items: baseline;
+  width: 100%;
+  font-family: Roboto, sans-serif;
+  color: purple;
+  //background: lightgray;
+  overflow: scroll;
+}
+
+.logo-home {
+  font-size: xxx-large;
+  font-weight: bolder;
+  color: purple;
+  letter-spacing: -3.5px;
+  text-decoration: none;
+}
+
+.logo-mg {
+  font-size: xx-large;
+  font-weight: bolder;
+  margin-left: 0.25ch;
+}
+
 div .message {
   display: flex;
   flex-direction: row;
@@ -78,7 +102,6 @@ h3, h4, h5, h6 {
   flex-wrap: wrap;
   row-gap: 8px;
   column-gap: 2px;
-  align-content: space-between;
   margin-top: 0.5rem;
 }
 
@@ -201,7 +224,6 @@ article ul {
   background: purple;
   color: white;
   padding: 0px 2px 0px 2px;
-  //border: 1px solid purple;
   border-radius: 2px;
   vertical-align: middle;
 }
@@ -219,9 +241,8 @@ article ul {
 }
 
 .archive-item .a-date {
- background: lavenderblush;
+  background: lavenderblush;
   padding: 2px 2px 2px 2px;
-  /* border: 1px solid; */
   border-radius: 4px;
 }
 
@@ -238,6 +259,7 @@ main a:visited {
 
 main a:hover {
   color: blueviolet;
+  text-decoration: 2px underline;
   transition: .25s ease-in-out;
 }
 
@@ -264,6 +286,12 @@ blockquote code, main code {
 blockquote a, blockquote cite a {
   color: whitesmoke;
   text-decoration: underline dotted;
+  transition: .25s ease-in-out;
+}
+
+blockquote a:hover, blockquote cite a:hover {
+  color: gold;
+  transition: .25s ease-in-out;
 }
 
 main code {
@@ -317,6 +345,25 @@ iframe {
   max-width: 560px;
   max-height: 315px;
   border-color: purple;
+}
+
+@keyframes message {
+  0%   { width:  0%; opacity: 0%; }
+  100% { width: 98%; opacity: 100%; }
+}
+
+.propaganda {
+  height: 2.5ch;
+  position: relative;
+  font-family: Roboto, sans-serif;
+  font-size: smaller;
+  letter-spacing: 0;
+  border-radius: 4px;
+  background: darkmagenta;
+  color: whitesmoke;
+  padding: 2px 4px 2px 4px;
+  animation: message 1.5s ease-out;
+  overflow: hidden;
 }
 
 .paginator {
