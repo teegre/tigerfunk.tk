@@ -10,7 +10,7 @@ from django.core.paginator import Paginator
 from django.core.mail import send_mail, BadHeaderError
 from django.contrib import messages
 from django.db.models import Count
-from .models import Tag, Article
+from .models import Tag, Article, get_random_message
 from .forms import ContactForm
 
 class HomeView(generic.ListView):
@@ -31,6 +31,8 @@ class HomeView(generic.ListView):
         'tag__id', 'tag__name').annotate(count=Count(
           'tag__name')).order_by(
               '-count', 'tag__name')
+
+    context['message'] = get_random_message()
 
     return context
 
@@ -80,8 +82,8 @@ def articles_by_tag(request, pk):
 
 class LatestEntriesFeed(Feed):
   """RSS feed"""
-  title = 'Tigerfunk.tk 500mg'
-  link = ''
+  title = 'tigerfunk.tk'
+  link = 'https://tigerfunk.tk'
   description = 'Liste des dernières publications.'
 
   def items(self):

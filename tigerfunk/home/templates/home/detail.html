@@ -1,12 +1,14 @@
 {% extends 'home/base.html' %}
 {% block title %}tigerfunk.tk | {{ article.title }}{% endblock %}
-{% block body %}
+{% block header %}
   <h1>{{ article.title }}</h1>
+  <div class="date">
+    <time class="small ml-1">Le {{ article.date|date:'d F Y' }}</time>
+  </div>
+  <hr>
+{% endblock %}
+{% block body %}
   <main>
-    <div class="date">
-      <time class="small ml-1">Le {{ article.date|date:'d F Y' }}</time>
-    </div>
-    <hr>
     <article>{{ article.entry|safe }}</article>
     <hr>
     <div class="tag-bar">

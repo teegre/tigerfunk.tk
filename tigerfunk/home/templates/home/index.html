@@ -1,8 +1,7 @@
 {% extends 'home/base.html' %}
 {% block title %}tigerfunk.tk [home]{% endblock %}
 {% block body %}
-      <h1><span class="logo">TIGERFUNK.TK</span> 500mg</h1>
-      <hr>
+<div class="propaganda"><span>{{ message|safe }}</span></div>
       <h2><b>Substances actives</b></h2>
       <div class="tag-bar">
       {% for tag in tags %}

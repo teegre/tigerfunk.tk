@@ -1,6 +1,7 @@
 """ Models """
 
 import datetime
+from random import randint
 from django.db import models
 from django.utils import timezone
 from django.urls import reverse
@@ -51,3 +52,16 @@ class Article(models.Model):
 
   def __str__(self):
     return f'{self.title}'
+
+class PropagandaMessage(models.Model):
+  """ Propaganda message """
+  message = models.TextField(verbose_name='Message de propagande', max_length=255)
+
+def get_random_message():
+  """ Return a random propaganda message """
+  max_id = PropagandaMessage.objects.all().aggregate(max_id=models.Max('id'))['max_id']
+  while True:
+    pk = randint(1, max_id)
+    message = PropagandaMessage.objects.filter(pk=pk).first()
+    if message:
+      return message.message
