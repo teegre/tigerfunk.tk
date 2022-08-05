@@ -44,14 +44,19 @@ class ArticleDetail(generic.DetailView):
 
 class ArchivedArticle(generic.MonthArchiveView): # pylint: disable=too-many-ancestors
   """ Archived article view """
-  queryset = Article.objects.filter(date__lt=timezone.now() - datetime.timedelta(days=30)) # pylint: disable=no-member
+  queryset = Article.objects.filter(
+    date__lt=timezone.now() - datetime.timedelta(days=30)).filter(
+      hidden=False
+    ) # pylint: disable=no-member
   date_field = 'date'
   template_name = 'home/archive.html'
   context_object_name = 'articles'
 
 def articles_by_tag(request, pk):
   """ Article list by tag """
-  articles = Article.objects.filter(tag__id=pk)
+  articles = Article.objects.filter(
+    tag__id=pk).filter(
+      hidden=False)
   tag = Tag.objects.get(pk=pk)
   paginator = Paginator(articles, 15, orphans=2)
 

@@ -22,6 +22,7 @@ class Article(models.Model):
   title = models.CharField(max_length=100)
   date = models.DateTimeField('date de publication')
   entry = models.TextField()
+  hidden = models.BooleanField(default=False)
   tag = models.ManyToManyField(Tag)
 
   @property
@@ -60,6 +61,8 @@ class PropagandaMessage(models.Model):
 def get_random_message():
   """ Return a random propaganda message """
   max_id = PropagandaMessage.objects.all().aggregate(max_id=models.Max('id'))['max_id']
+  if not max_id:
+    return '<b>tigerfunk.tk</b> vous souhaite la <b>bienvenue</b> !'
   while True:
     pk = randint(1, max_id)
     message = PropagandaMessage.objects.filter(pk=pk).first()
