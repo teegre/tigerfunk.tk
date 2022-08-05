@@ -27,7 +27,7 @@ class HomeView(generic.ListView):
       date__lt=timezone.now() - datetime.timedelta(days=30)
     )
    # pylint: disable=no-member
-    context['tags'] = Article.objects.values(
+    context['tags'] = Article.objects.filter(hidden=False).values(
         'tag__id', 'tag__name').annotate(count=Count(
           'tag__name')).order_by(
               '-count', 'tag__name')
@@ -88,12 +88,12 @@ def articles_by_tag(request, pk):
 class LatestEntriesFeed(Feed):
   """RSS feed"""
   title = 'tigerfunk.tk'
-  link = 'https://tigerfunk.tk'
+  link = ''
   description = 'Liste des dernières publications.'
 
   def items(self):
     """An article entry"""
-    return Article.objects.order_by('-date')[:15] # pylint: disable=no-member
+    return Article.objects.filter(hidden=False).order_by('-date')[:15] # pylint: disable=no-member
 
   def item_title(self, item):
     """Article title"""
