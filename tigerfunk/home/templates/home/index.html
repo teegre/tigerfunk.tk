@@ -12,7 +12,7 @@
       {% endfor %}
       </div>
       <hr>
-      <input type="checkbox" class="man-trigger" id="cbm"><label for="cbm" class="man-trigger-text"><h2><b><small>&#128195;</small> Notice d'utilisation</b></h2></label>
+      <input type="checkbox" class="man-trigger" id="cbm"><label for="cbm" class="man-trigger-text"><h2><b>Notice d'utilisation</b></h2></label>
       <div class="man-page">
         <b><u>Mode d'administration</u></b><br>
         &circledcirc; voie visuelle &#128065;.<br>
@@ -38,7 +38,7 @@
           <li class=content-link><span class="a-date">{{ article.date|date:'Ymd' }}</span> {% if article.is_new %}<span class="new">nouveau</span> {%endif %}<a href="{% url 'detail' article.id %}"><strong>{{ article.title }}</strong></a></li>
           {% endif %}
         {% empty %}
-          <li><strong>Nihil novi sub sole.</strong></li>
+          <li><strong>Rien de nouveau sous le soleil.</strong></li>
         {% endfor %}
         </ul>
         <hr>
