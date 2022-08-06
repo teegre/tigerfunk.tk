@@ -17,7 +17,6 @@ html {
   width: 100%;
   font-family: Roboto, sans-serif;
   color: purple;
-  //background: lightgray;
   overflow: scroll;
 }
 
@@ -348,13 +347,16 @@ iframe {
 }
 
 @keyframes message {
-  0%   { width:  0%; opacity: 0%; }
-  100% { width: 98%; opacity: 100%; }
+  0%   { transform: translateX(133%); opacity: 0%;   }
+  100% { transform: translateX(0%);   opacity: 100%; }
+}
+
+@keyframes bg {
+  from { width: 33%;  opacity: -100%; overflow: hidden; }
+  to   { width: 100%; opacity: 100%;  overflow: hidden; }
 }
 
 .propaganda {
-  height: 2.5ch;
-  position: relative;
   font-family: Roboto, sans-serif;
   font-size: smaller;
   letter-spacing: 0;
@@ -362,8 +364,13 @@ iframe {
   background: darkmagenta;
   color: whitesmoke;
   padding: 2px 4px 2px 4px;
-  animation: message 1.5s ease-out;
-  overflow: hidden;
+  overflow-x: scroll;
+  animation: bg 2s linear;
+}
+
+.p-message {
+  white-space: nowrap;
+  animation: message 2s linear;
 }
 
 .paginator {
