@@ -52,8 +52,9 @@ div .message {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: Roboto, sans-serif;
-  color: purple;
   font-weight: bolder;
+  text-align: left;
+  color: purple;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
 }
@@ -404,4 +405,41 @@ iframe {
 .inactive {
   opacity: 0.5;
   cursor: default;
+}
+
+@media (max-width: 375px) {
+  .logo {
+    font-size: 2ch;
+  }
+
+  .tag-bar {
+    display: grid;
+    margin: auto;
+  }
+
+  .tag-btn {
+    display: flex;
+    width: inherit;
+    text-align: center;
+    padding: 2px 2px 8px 2px;
+    flex-direction: column;
+  }
+
+  .tag-count {
+    width: 8ch;
+    align-self: center;
+  }
+
+  .man-page {
+    display: none;
+  }
+
+  #btn-back {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 3ch;
+    letter-spacing: -2px;
+  }
 }
