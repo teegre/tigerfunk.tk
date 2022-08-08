@@ -1,8 +1,10 @@
 """ Models """
 
 import datetime
-from random import randint
+import string
+from random import randint, choice
 from django.db import models
+from django.db.models.signals import pre_save
 from django.utils import timezone
 from django.urls import reverse
 
@@ -19,6 +21,7 @@ class Tag(models.Model):
 
 class Article(models.Model):
   """ An article """
+  uid = models.CharField(max_length=12, blank=True)
   title = models.CharField(max_length=100)
   date = models.DateTimeField('date de publication')
   entry = models.TextField()
@@ -49,10 +52,26 @@ class Article(models.Model):
     ordering = ['-date']
 
   def get_absolute_url(self):
-    return reverse('detail', args=[str(self.id)])
+    return reverse('detail', kwargs={'uid': self.uid})
 
   def __str__(self):
     return f'{self.title}'
+
+def uid_generator(size=12, chars=string.ascii_lowercase+string.digits):
+  return ''.join(choice(chars) for _ in range(size))
+
+def article_uid_generator(instance: Article):
+  uid = uid_generator()
+  article = instance.__class__
+  if article.objects.filter(uid=uid).exists():
+    return article_uid_generator(instance)
+  return uid
+
+def pre_save_create_article_uid(sender, instance, *arg, **kwargs):
+  if not instance.uid:
+    instance.uid = article_uid_generator(instance)
+
+pre_save.connect(pre_save_create_article_uid, sender=Article)
 
 class PropagandaMessage(models.Model):
   """ Propaganda message """

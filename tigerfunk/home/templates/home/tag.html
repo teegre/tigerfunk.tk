@@ -7,7 +7,7 @@
       <hr>
       <ul>
       {% for article in page_obj %}
-        <li class=content-link><span class="a-date">{{ article.date|date:'Ymd' }}</span> <a href="{% url 'detail' article.id %}"><strong>{{ article.title }}</strong></a></li>
+        <li class=content-link><span class="a-date">{{ article.date|date:'Ymd' }}</span> <a href="{% url 'detail' article.uid %}"><strong>{{ article.title }}</strong></a></li>
       {% empty %}
         <li><strong>Substance orpheline</strong></li>
       {% endfor %}
