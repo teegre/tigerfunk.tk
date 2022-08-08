@@ -16,7 +16,7 @@ info_dict = {
 
 urlpatterns = [
   path('', views.HomeView.as_view(), name='index'),
-  path('article/<int:pk>/', views.ArticleDetail.as_view(), name='detail'),
+  path('article/<slug:uid>/', views.ArticleDetail.as_view(), name='detail'),
   path(
     'archive/<int:year>/<int:month>/',
     views.ArchivedArticle.as_view(month_format='%m'),

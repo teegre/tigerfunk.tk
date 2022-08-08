@@ -42,6 +42,9 @@ class ArticleDetail(generic.DetailView):
   template_name = 'home/detail.html'
   context_object_name = 'article'
 
+  slug_field = 'uid'
+  slug_url_kwarg = 'uid'
+
 class ArchivedArticle(generic.MonthArchiveView): # pylint: disable=too-many-ancestors
   """ Archived article view """
   queryset = Article.objects.filter(
@@ -104,4 +107,4 @@ class LatestEntriesFeed(Feed):
     return item.date
 
   def item_link(self, item):
-    return reverse('detail', args=[item.pk])
+    return reverse('detail', args=[item.uid])
