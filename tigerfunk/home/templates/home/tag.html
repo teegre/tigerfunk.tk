@@ -1,21 +1,22 @@
 {% extends 'home/base.html' %}
 {% block title %}tigerfunk.tk [{{ tag.name }}]{% endblock %}
 {% block body %}
-      <h1><b>SUBSTANCE:{{ tag.name|upper }}</b></h1>
-      <main>
-      Eléments contentant : <span class="tag-btn">{{ tag.name }}</span>
-      <hr>
-      <ul>
+  <h1><b>SUBSTANCE:{{ tag.name|upper }}</b></h1>
+  <hr>
+  <main>
+    <h2><b>Contenu</b></h2>
+    <hr>
+    <ul>
       {% for article in page_obj %}
-        <li class=content-link><span class="a-date">{{ article.date|date:'Ymd' }}</span> <a href="{% url 'detail' article.uid %}"><strong>{{ article.title }}</strong></a></li>
+      <li class=content-link><span class="a-date">{{ article.date|date:'Ymd' }}</span> <a href="{% url 'detail' article.uid %}"><strong>{{ article.title }}</strong></a></li>
       {% empty %}
-        <li><strong>Substance orpheline</strong></li>
+      <li><strong>Substance orpheline</strong></li>
       {% endfor %}
-      </ul>
-      {% if page_obj.has_next or page_obj.has_previous %}
-        {% include 'home/paginator.html' %}
-      {% endif %}
-      <hr>
-      <button id="btn-back" type="button" onclick="history.back()">retour</button>
-    </main>
+    </ul>
+    {% if page_obj.has_next or page_obj.has_previous %}
+      {% include 'home/paginator.html' %}
+    {% endif %}
+    <hr>
+    <button id="btn-back" type="button" onclick="history.back()">retour</button>
+  </main>
 {% endblock %}

@@ -2,21 +2,44 @@
 import datetime
 from django.utils import timezone
 from django.views import generic
-from django.http import HttpResponse, HttpResponseRedirect
+# from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.syndication.views import Feed
 from django.urls import reverse
 from django.shortcuts import render
 from django.core.paginator import Paginator
-from django.core.mail import send_mail, BadHeaderError
-from django.contrib import messages
-from django.db.models import Count
+# from django.core.mail import send_mail, BadHeaderError
+# from django.contrib import messages
+from django.db.models import Count, Q, F, Value
 from .models import Tag, Article, get_random_message
-from .forms import ContactForm
+# from .forms import ContactForm
 
 class HomeView(generic.ListView):
   """ Home view """
   model = Article
   template_name = 'home/index.html'
+
+  max_count = Tag.objects.all().aggregate(
+      count=Count(
+        'article', filter=Q(article__hidden=False)
+        )
+      )['count']
+
+  def tag_weight(self,pk):
+    max_mg = 500
+    art_count = Tag.objects.filter(pk=pk)[0].article_set.filter(hidden=False).count()
+    return round(art_count*max_mg/self.max_count, 1);
+
+  def custom_tag_query_set(self):
+    data = Tag.objects.annotate(
+      count=Count(
+        'article', filter=Q(article__hidden=False)
+      )
+    ).filter(count__gt=0).values('id', 'name').order_by('-count', 'name')
+
+    for tag in data:
+      tag['weight'] = self.tag_weight(tag['id'])
+
+    return data
 
   def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)
@@ -27,10 +50,12 @@ class HomeView(generic.ListView):
       date__lt=timezone.now() - datetime.timedelta(days=30)
     )
    # pylint: disable=no-member
-    context['tags'] = Article.objects.filter(hidden=False).values(
-        'tag__id', 'tag__name').annotate(count=Count(
-          'tag__name')).order_by(
-              '-count', 'tag__name')
+   # context['tags'] = Article.objects.filter(hidden=False).values(
+   #     'tag__id', 'tag__name').annotate(count=Count(
+   #       'tag__name')).order_by(
+   #           '-count', 'tag__name')
+
+    context['tags'] = self.custom_tag_query_set()
 
     context['message'] = get_random_message()
 
