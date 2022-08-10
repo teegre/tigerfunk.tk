@@ -409,7 +409,7 @@ iframe {
   cursor: default;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 428px) {
   .logo {
     font-size: 2ch;
   }
