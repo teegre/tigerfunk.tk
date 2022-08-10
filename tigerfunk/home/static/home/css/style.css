@@ -418,16 +418,15 @@ iframe {
     margin: auto;
   }
 
-  .tag-btn {
+  .tag-btn-count > .tag-btn {
     display: flex;
     text-align: center;
-    padding: 2px 2px 8px 2px;
+    padding: 2px 2px 6px 2px;
     flex-direction: column;
   }
 
   .tag-count {
-    width: 8ch;
-    align-self: center;
+    width: 10ch;
   }
 
   .man-page {
