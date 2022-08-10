@@ -100,7 +100,7 @@ h3, h4, h5, h6 {
 .tag-bar {
   display: flex;
   flex-wrap: wrap;
-  row-gap: 8px;
+  row-gap: 2px;
   column-gap: 2px;
   margin-top: 0.5rem;
 }
@@ -113,11 +113,12 @@ h3, h4, h5, h6 {
 
 .tag-count {
   display: inline;
-  vertical-align: middle;
   text-align: center;
-  font-family: monospace, sans-serif;
+  align-self: center;
+  font-family: monospace;
   font-size: x-small;
-  font-weight: bolder;
+  font-weight: normal;
+  font-variant: normal;
   background: whitesmoke;
   color: purple;
   border-radius: 16px;
@@ -127,6 +128,7 @@ h3, h4, h5, h6 {
 }
 
 .tag-btn {
+  display: flex;
   background: purple;
   color: white;
   padding: 2px 4px 2px 4px;
@@ -413,13 +415,11 @@ iframe {
   }
 
   .tag-bar {
-    display: grid;
     margin: auto;
   }
 
   .tag-btn {
     display: flex;
-    width: inherit;
     text-align: center;
     padding: 2px 2px 8px 2px;
     flex-direction: column;
