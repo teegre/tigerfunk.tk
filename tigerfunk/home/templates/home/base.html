@@ -1,10 +1,15 @@
 {% load static %}
+{% load home_night %}
 <!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="{% static 'home/css/style.css' %}">
+    {% is_night as night %}
+    {% if night is True %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/css/style-dark.css' %}">
+    {% endif %}
     <link rel="shortcut icon" type="img/x-icon" href="{% static 'home/img/favicon.png' %}">
     <title>{% block title %}{% endblock %}</title>
   </head>
