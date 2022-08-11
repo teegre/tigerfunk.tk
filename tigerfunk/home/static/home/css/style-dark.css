@@ -1,0 +1,163 @@
+html {
+  background: #111;
+  color: #555;
+}
+
+.logo {
+  color: purple;
+  opacity: 35%;
+}
+
+.logo-home {
+  color: purple;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444;
+}
+
+h3, h4, h5, h6 {
+  border-left: 4px solid #444;
+}
+
+.vl {
+  border-left: 2px solid #222;
+}
+
+.tag-count {
+  background: #222;
+  color: #999;
+}
+
+.tag-btn {
+  background: #444;
+  color: #999;
+}
+
+.tag-btn:visited {
+  background: #999;
+  color: #EEE;
+}
+
+.tag-btn:hover {
+  background: #777;
+  color: #FFF;
+}
+
+.tag-btn:visited .tag-count {
+  background: gold;
+  color: darkorchid;
+}
+
+.tag-btn:hover .tag-count {
+  background: #999;
+  color: #444;
+}
+
+#btn-back {
+  background: #444;
+  color: #999;
+}
+
+#btn-back:hover {
+  background: #777;
+  color: #FFF;
+}
+
+hr {
+  color: #222;
+}
+
+footer, .date {
+  background: #222;
+  color: #777;
+}
+
+footer a {
+  color: #777;
+}
+
+.new {
+  background: #444;
+  color: #777;
+}
+
+.archive-item .a-date {
+  background: #222;
+}
+
+main a {
+  color: #555;
+}
+
+main a:visited {
+  color: #444;
+}
+
+main a:hover {
+  color: #777;
+}
+
+blockquote {
+  background: #222;
+  color: #777;
+  border-left: 8px solid #333;
+}
+
+blockquote code, main code {
+  background: #000;
+  color: #777;
+}
+
+blockquote a, blockquote cite a {
+  color: #888;
+}
+
+blockquote a:hover, blockquote cite a:hover {
+  color: #EEE;
+}
+
+main code {
+  background: #333;
+}
+
+main pre {
+  background: #333;
+}
+
+main pre code {
+  background: #333;
+}
+
+main td, main th {
+  border: 1px solid #777;
+  color: #777;
+}
+
+main table th {
+  background: #111;
+  color: #777;
+}
+
+main table tr:nth-child(odd) {
+  background: #222 ;
+}
+
+iframe {
+  border-color: #777;
+}
+
+.propaganda {
+  background: #222;
+  color: #777;
+}
+
+.page {
+  background: #222;
+  color: #777;
+}
+
+.page-btn {
+  background: #444;
+}
