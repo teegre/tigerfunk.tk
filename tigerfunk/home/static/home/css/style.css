@@ -371,6 +371,11 @@ iframe {
   animation: bg 2s linear;
 }
 
+.propaganda a {
+  color: white;
+  font-weight: bold;
+}
+
 .p-message {
   white-space: nowrap;
   animation: message 2s linear;
