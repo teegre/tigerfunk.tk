@@ -77,6 +77,9 @@ class PropagandaMessage(models.Model):
   """ Propaganda message """
   message = models.TextField(verbose_name='Message de propagande', max_length=255)
 
+  def __str__(self):
+    return self.message
+
 def get_random_message():
   """ Return a random propaganda message """
   max_id = PropagandaMessage.objects.all().aggregate(max_id=models.Max('id'))['max_id']
