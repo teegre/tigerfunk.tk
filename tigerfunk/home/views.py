@@ -9,7 +9,7 @@ from django.shortcuts import render
 from django.core.paginator import Paginator
 # from django.core.mail import send_mail, BadHeaderError
 # from django.contrib import messages
-from django.db.models import Count, Q, F, Value
+from django.db.models import Count, Q
 from .models import Tag, Article, get_random_message
 # from .forms import ContactForm
 
@@ -81,12 +81,12 @@ class ArchivedArticle(generic.MonthArchiveView): # pylint: disable=too-many-ance
   template_name = 'home/archive.html'
   context_object_name = 'articles'
 
-def articles_by_tag(request, pk):
+def articles_by_tag(request, name):
   """ Article list by tag """
   articles = Article.objects.filter(
-    tag__id=pk).filter(
+    tag__name=name).filter(
       hidden=False)
-  tag = Tag.objects.get(pk=pk)
+  tag = Tag.objects.get(name=name)
   paginator = Paginator(articles, 15, orphans=2)
 
   page_number = request.GET.get('page')

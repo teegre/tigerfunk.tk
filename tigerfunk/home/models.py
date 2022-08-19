@@ -8,9 +8,23 @@ from django.db.models.signals import pre_save
 from django.utils import timezone
 from django.urls import reverse
 
+class TagNameField(models.CharField):
+  """ A tag name """
+  description = "A unique lowercase tag name"
+  def __init__(self, *args, **kwargs):
+    kwargs['max_length'] = 15
+    kwargs['unique'] = True
+    super().__init__(*args, **kwargs)
+
+  def get_prep_value(self, value):
+    return value.lower()
+
 class Tag(models.Model):
   """ A tag """
-  name = models.CharField(max_length=15)
+  name = TagNameField()
+
+  def get_absolute_url(self):
+    return reverse ('tag', kwargs={'name': self.name})
 
   class Meta: # pylint: disable=too-few-public-methods
     """ Ordering """
