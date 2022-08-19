@@ -9,7 +9,7 @@
 <h2><b>Substances actives</b></h2>
 <div class="tag-bar">
 {% for tag in tags %}
-  <div class="tag-btn-count"><a class="tag-btn" href="{% url 'tag' tag.id %}">{{ tag.name }}<div class="tag-count">{{ tag.weight }} mg</div></a></div>
+  <div class="tag-btn-count"><a class="tag-btn" href="{% url 'tag' tag.name %}">{{ tag.name }}<div class="tag-count">{{ tag.weight }} mg</div></a></div>
 {% empty %}
   <small>Aucune</small>
 {% endfor %}

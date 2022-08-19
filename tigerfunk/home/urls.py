@@ -22,7 +22,7 @@ urlpatterns = [
     views.ArchivedArticle.as_view(month_format='%m'),
     name='archive'
   ),
-  path('tag/<int:pk>/', views.articles_by_tag, name='tag'),
+  path('tag/<slug:name>/', views.articles_by_tag, name='tag'),
   # path('contact/', views.contact_view, name='contact'),
   path('feed/', views.LatestEntriesFeed(), name='feed'),
   path('sitemap/', sitemap,
