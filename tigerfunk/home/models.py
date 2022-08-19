@@ -17,7 +17,7 @@ class TagNameField(models.CharField):
     super().__init__(*args, **kwargs)
 
   def get_prep_value(self, value):
-    return value.lower()
+    return value.lower().replace(' ', '-')
 
 class Tag(models.Model):
   """ A tag """
