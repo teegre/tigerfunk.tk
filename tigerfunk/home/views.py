@@ -48,7 +48,7 @@ class HomeView(generic.ListView):
       date__gte=timezone.now() - datetime.timedelta(days=30)
     )
     context['archives'] = Article.objects.filter( # pylint: disable=no-member
-      date__lt=timezone.now() - datetime.timedelta(days=30)
+      date__lt=timezone.now() - datetime.timedelta(days=30), hidden=False
     )
    # pylint: disable=no-member
    # context['tags'] = Article.objects.filter(hidden=False).values(
