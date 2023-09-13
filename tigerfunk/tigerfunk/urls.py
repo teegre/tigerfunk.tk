@@ -16,6 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+admin.site.site_header = 'TIGERFUNK.TK Administration Console'
+admin.site.site_title = 'TIGERFUNK.TK Administration Site'
+admin.site.site_index = 'TIGERFUNK.TK'
+
 urlpatterns = [
   path('admin/', admin.site.urls),
   path('', include('home.urls')),
