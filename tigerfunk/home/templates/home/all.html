@@ -1,0 +1,17 @@
+{% extends 'home/base.html' %}
+{% block title %}tigerfunk.tk [tout]{% endblock %}
+{% block body %}
+      <h1><b>TOUT</b></h1>
+      <hr>
+      <main>
+        <h2><b>Contenu</b></h2>
+        <hr>
+        <ul>
+        {% for article in articles %}
+          <li class="content-link"><span class="a-date">{{ article.date|date:'Ymd' }}</span> <a href="{% url 'detail' article.uid %}"><strong>{{ article.title }}</strong></a></li>
+        {% endfor %}
+        </ul>
+        <hr>
+        <button id="btn-back" type="button" onclick="history.back()">retour</button>
+      </main>
+{% endblock %}

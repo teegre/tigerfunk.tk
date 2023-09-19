@@ -31,7 +31,9 @@ html {
 .logo-mg {
   font-size: xx-large;
   font-weight: bolder;
+  color: purple;
   margin-left: 0.25ch;
+  text-decoration: none;
 }
 
 div .message {
