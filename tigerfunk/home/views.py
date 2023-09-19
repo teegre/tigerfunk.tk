@@ -81,6 +81,12 @@ class ArchivedArticle(generic.MonthArchiveView): # pylint: disable=too-many-ance
   template_name = 'home/archive.html'
   context_object_name = 'articles'
 
+class AllArticles(generic.ListView):
+  """ Show all articles """
+  queryset = Article.objects.filter(hidden=False).order_by('-date')
+  template_name = 'home/all.html'
+  context_object_name = 'articles'
+
 def articles_by_tag(request, name):
   """ Article list by tag """
   articles = Article.objects.filter(
