@@ -448,4 +448,12 @@ iframe {
     font-size: 3ch;
     letter-spacing: -2px;
   }
+
+  footer {
+    font-size: smaller;
+  }
+
+  footer a {
+    font-variant: initial;
+  }
 }
