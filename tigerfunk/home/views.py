@@ -18,17 +18,18 @@ class HomeView(generic.ListView):
   model = Article
   template_name = 'home/index.html'
 
-  # /!\ if rebuild db from scratch, comment the lines below:
-  max_count = Tag.objects.all().aggregate(            # here
-      count=Count(                                    # here
-        'article', filter=Q(article__hidden=False)    # here
-        )                                             # here
-      )['count']                                      # here
+  def tag_article_count(self):
+    return Tag.objects.all().aggregate(
+      count=Count(
+        'article', filter=Q(article__hidden=False)
+        )
+      )['count']
 
   def tag_weight(self,pk):
+    max_count = self.tag_article_count()
     max_mg = 500
     art_count = Tag.objects.filter(pk=pk)[0].article_set.filter(hidden=False).count()
-    return round(art_count*max_mg/self.max_count, 1);
+    return round(art_count*max_mg/max_count, 1)
 
   def custom_tag_query_set(self):
     data = Tag.objects.annotate(
