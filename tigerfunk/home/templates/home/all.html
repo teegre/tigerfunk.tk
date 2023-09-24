@@ -9,6 +9,8 @@
         <ul>
         {% for article in articles %}
           <li class="content-link"><span class="a-date">{{ article.date|date:'Ymd' }}</span> <a href="{% url 'detail' article.uid %}"><strong>{{ article.title }}</strong></a></li>
+        {% empty %}
+        <li><strong>C'est vide ! &#128564;</strong></li> 
         {% endfor %}
         </ul>
         <hr>
