@@ -416,7 +416,7 @@ iframe {
   cursor: default;
 }
 
-@media (max-width: 428px) {
+@media (max-width: 441px) {
   .logo {
     font-size: 2ch;
   }
@@ -451,6 +451,8 @@ iframe {
 
   footer {
     font-size: smaller;
+    white-space: nowrap;
+    overflow-x: scroll;
   }
 
   footer a {
