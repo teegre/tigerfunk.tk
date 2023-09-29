@@ -9,7 +9,7 @@
     <link rel="shortcut icon" type="img/x-icon" href="{% static 'home/img/favicon.png' %}">
     <title>{% block title %}{% endblock %}</title>
   </head>
-  <script charset="utf-8">
+  <script>
     function toggleDarkMode() {
       let ss = document.styleSheets;
       if (ss.length === 1) {
@@ -45,6 +45,12 @@
             if (document.cookie === "dark-mode=true") {
               toggleDarkMode();
             }
+            {% is_night as night %}
+            {% if night is True %}
+            if (document.cookie === "") {
+              toggleDarkMode();
+            }
+            {% endif %}
           </script>
         </div>
         <hr>
@@ -57,16 +63,11 @@
       <hr>
       <script>
         let btn = document.getElementById("dark-mode-button");
-        {% is_night as night %}
-        {% if night is True %}
-        document.getElementById("dark-mode-button").innerHTML = "jour"
-        {% else %}
         if (document.cookie === "dark-mode=true") {
           document.getElementById("dark-mode-button").innerHTML = "jour";
         } else {
           document.getElementById("dark-mode-button").innerHTML = "nuit";
         }
-        {% endif %}
       </script>
       <footer>
         © {% now 'Y' %} <b>tigerfunk.tk</b>
