@@ -13,10 +13,46 @@
     <link rel="shortcut icon" type="img/x-icon" href="{% static 'home/img/favicon.png' %}">
     <title>{% block title %}{% endblock %}</title>
   </head>
+  <script charset="utf-8">
+    function toggleDarkMode() {
+      let ss = document.styleSheets;
+      if (ss.length === 1) {
+        // Load dark mode
+        let head = document.getElementsByTagName("head")[0];
+        let css = document.createElement("link");
+        css.rel = "stylesheet";
+        css.type = "text/css";
+        css.href = "{% static 'home/css/style-dark.css' %}";
+        css.setAttribute("id", "dark-mode");
+        head.appendChild(css);
+        // document.getElementById("dark-mode-img").setAttribute("src", "{% static 'home/img/sun.svg' %}")
+        document.getElementById("dark-mode-button").innerHTML = "jour"
+        document.cookie = "dark-mode=true; samesite=lax; path=/";
+      } else {
+        // Unload dark mode
+        let css = document.getElementById("dark-mode");
+        css.parentNode.removeChild(css);
+        // document.getElementById("dark-mode-img").setAttribute("src", "{% static 'home/img/moon.svg' %}")
+        document.getElementById("dark-mode-button").innerHTML = "nuit"
+        document.cookie = "dark-mode=false; samesite=strict; path=/";
+      }
+    }
+  </script>
   <body>
     <div>
       <header>
-        <div class="logo"><a class="logo-home" href="{% url 'index' %}">TIGERFUNK.TK</a> <a class="logo-mg" href="{% url 'all' %}">500mg</a></div>
+        <div class="logo">
+          <a class="logo-home" href="{% url 'index' %}">TIGERFUNK.TK</a>
+          <a class="logo-mg" href="{% url 'all' %}">500mg</a>
+          <button id="dark-mode-button" onclick="toggleDarkMode()">
+            nuit
+          </button>
+          <script>
+            if (document.cookie === "dark-mode=true") {
+              toggleDarkMode();
+            }
+          </script>
+        </div>
         <hr>
       {% block header %}
       {% endblock %}
@@ -25,6 +61,21 @@
       {% block body %}
       {% endblock %}
       <hr>
+      <script>
+        let btn = document.getElementById("dark-mode-button");
+        {% is_night as night %}
+        {% if night is True %}
+        btn.setAttribute("src", "{% static 'home/img/sun.svg' %}");
+        {% else %}
+        if (document.cookie === "dark-mode=true") {
+          // document.getElementById("dark-mode-img").setAttribute("src", "{% static 'home/img/sun.svg' %}")
+          document.getElementById("dark-mode-button").innerHTML = "jour";
+        } else {
+          // document.getElementById("dark-mode-img").setAttribute("src", "{% static 'home/img/moon.svg' %}")
+          document.getElementById("dark-mode-button").innerHTML = "nuit";
+        }
+        {% endif %}
+      </script>
       <footer>
         © {% now 'Y' %} <b>tigerfunk.tk</b>
         &blacksquare; <a href="{% url 'index' %}">accueil</a>
