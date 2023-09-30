@@ -90,7 +90,7 @@ h3, h4, h5, h6 {
 
 .man-trigger-text {
   text-decoration: underline dotted;
-  cursor: alias;
+  cursor: help;
 }
 
 .logo {
@@ -172,6 +172,7 @@ h3, h4, h5, h6 {
   padding: 0px 2px 0px 2px;
   border-radius: 2px;
   vertical-align: middle;
+  cursor: pointer;
 }
 
 .logo #dark-mode-button {
