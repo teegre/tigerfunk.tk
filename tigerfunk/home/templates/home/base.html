@@ -28,7 +28,7 @@
         let css = document.getElementById("dark-mode");
         css.parentNode.removeChild(css);
         document.getElementById("dark-mode-button").innerHTML = "nuit"
-        document.cookie = "dark-mode=false; samesite=strict; path=/";
+        document.cookie = "dark-mode=false; samesite=lax; path=/";
       }
     }
   </script>
@@ -62,7 +62,6 @@
       {% endblock %}
       <hr>
       <script>
-        let btn = document.getElementById("dark-mode-button");
         if (document.cookie === "dark-mode=true") {
           document.getElementById("dark-mode-button").innerHTML = "jour";
         } else {
