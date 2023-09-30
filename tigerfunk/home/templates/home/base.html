@@ -9,30 +9,30 @@
     <link rel="shortcut icon" type="img/x-icon" href="{% static 'home/img/favicon.png' %}">
     <title>{% block title %}{% endblock %}</title>
   </head>
-  <script>
-    function toggleDarkMode() {
-      let ss = document.styleSheets;
-      if (ss.length === 1) {
-        // Load dark mode
-        let head = document.getElementsByTagName("head")[0];
-        let css = document.createElement("link");
-        css.rel = "stylesheet";
-        css.type = "text/css";
-        css.href = "{% static 'home/css/style-dark.css' %}";
-        css.setAttribute("id", "dark-mode");
-        head.appendChild(css);
-        document.getElementById("dark-mode-button").innerHTML = "jour"
-        document.cookie = "dark-mode=true; samesite=lax; path=/";
-      } else {
-        // Unload dark mode
-        let css = document.getElementById("dark-mode");
-        css.parentNode.removeChild(css);
-        document.getElementById("dark-mode-button").innerHTML = "nuit"
-        document.cookie = "dark-mode=false; samesite=lax; path=/";
-      }
-    }
-  </script>
   <body>
+    <script>
+      function toggleDarkMode() {
+        let ss = document.styleSheets;
+        if (ss.length === 1) {
+          // Load dark mode
+          let head = document.getElementsByTagName("head")[0];
+          let css = document.createElement("link");
+          css.rel = "stylesheet";
+          css.type = "text/css";
+          css.href = "{% static 'home/css/style-dark.css' %}";
+          css.setAttribute("id", "dark-mode");
+          head.appendChild(css);
+          document.getElementById("dark-mode-button").innerHTML = "jour"
+          document.cookie = "dark-mode=true; samesite=lax; path=/";
+        } else {
+          // Unload dark mode
+          let css = document.getElementById("dark-mode");
+          css.parentNode.removeChild(css);
+          document.getElementById("dark-mode-button").innerHTML = "nuit"
+          document.cookie = "dark-mode=false; samesite=lax; path=/";
+        }
+      }
+    </script>
     <div>
       <header>
         <div class="logo">
