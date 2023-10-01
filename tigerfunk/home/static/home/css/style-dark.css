@@ -160,8 +160,28 @@ iframe {
 .page {
   background: #222;
   color: #777;
+  border: 1px solid #222;
 }
 
 .page-btn {
   background: #444;
+  color: whitesmoke;
+  border: 1px solid #444;
+}
+
+.page-btn-inactive {
+  background: #444;
+  color: whitesmoke;
+  border: 1px solid #444;
+}
+
+.page-btn:hover {
+  background: whitesmoke;
+  color: #444;
+  border: 1px solid whitesmoke;
+}
+
+.inactive {
+  opacity: 0.1;
+  cursor: default;
 }

@@ -1,20 +1,10 @@
 {# Paginator template #}
 <hr>
 <div class="paginator">
-  <span class="page">page {{ page_obj.number }}-{{ page_obj.paginator.num_pages }}</span>
-  {% if page_obj.has_previous %}
-    <a class="page-btn" href="?page=1">&lt;&lt;</a>
-    <a class="page-btn" href="?page={{ page_obj.previous_page_number }}">&lt;</a>
-  {% else %}
-    <span class="page-btn inactive">&lt;&lt;</span>
-    <span class="page-btn inactive">&lt;</span>
-  {% endif %}
-
+  <span class="page">page {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</span>
   {% if page_obj.has_next %}
-    <a class="page-btn" href="?page={{ page_obj.next_page_number }}">&gt;</a>
-    <a class="page-btn" href="?page={{ page_obj.paginator.num_pages }}">&gt;&gt;</a>
+  <a class="page-btn" href="?page={{ page_obj.next_page_number }}">suivant</a>
   {% else %}
-    <span class="page-btn inactive">&gt;</span>
-    <span class="page-btn inactive">&gt;&gt;</span>
+  <span class="page-btn-inactive inactive">suivant</span>
   {% endif %}
 </div>

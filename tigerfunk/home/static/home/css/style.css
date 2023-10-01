@@ -136,8 +136,8 @@ h3, h4, h5, h6 {
   padding: 2px 4px 2px 4px;
   border-radius: 4px;
   text-decoration: none;
-  transition: .25s ease-in-out;
   font-variant: small-caps;
+  transition: .25s ease-in-out;
 }
 
 .tag-btn:visited {
@@ -185,7 +185,7 @@ h3, h4, h5, h6 {
   color: white;
   padding: 4px;
   border-radius: 4px;
-  transition: .5s ease-in-out;
+  transition: .25s ease-in-out;
   border: none;
   font-variant: small-caps;
 }
@@ -193,7 +193,7 @@ h3, h4, h5, h6 {
 #btn-back:hover {
   background: white;
   color: purple;
-  transition: .5s;
+  transition: .25s;
 }
 
 hr {
@@ -418,7 +418,8 @@ iframe {
 }
 
 .page-btn {
-  background: lavenderblush;
+  background: purple;
+  color: whitesmoke;
   font-variant: small-caps;
   font-size: small;
   padding: 2px;
@@ -426,7 +427,26 @@ iframe {
   border: 1px solid;
   border-radius: 4px;
   letter-spacing: 0;
-  
+}
+
+.page-btn-inactive {
+  background: purple;
+  color: whitesmoke;
+  font-variant: small-caps;
+  font-size: small;
+  padding: 2px;
+  margin-left: 4px;
+  border: 1px solid;
+  border-radius: 4px;
+  letter-spacing: 0;
+}
+
+.page-btn:hover {
+  background: lavenderblush;
+  color: purple;
+  border: 1px solid lavenderblush;
+  text-decoration: none;
+  transition: .25s;
 }
 
 .inactive {
