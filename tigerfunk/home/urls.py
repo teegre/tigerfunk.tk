@@ -24,7 +24,7 @@ urlpatterns = [
   ),
   path('tag/<slug:name>/', views.articles_by_tag, name='tag'),
   # path('contact/', views.contact_view, name='contact'),
-  path('articles', views.AllArticles.as_view(), name='all'),
+  path('articles', views.all_articles, name='all'),
   path('feed/', views.LatestEntriesFeed(), name='feed'),
   path('sitemap/', sitemap,
     {'sitemaps': {'blog': GenericSitemap(info_dict, priority=0.6)}},
