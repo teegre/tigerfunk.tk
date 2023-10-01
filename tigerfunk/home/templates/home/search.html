@@ -1,0 +1,34 @@
+{# Search form #}
+{% extends 'home/base.html' %}
+{% block body %}
+<form action="{% url 'search' %}" method="get">
+  <label for="q">&gt;</label>
+  <input class="search" name="q" type="text" placeholder="Recherche..." autofocus>
+</form>
+<main>
+  {% if search_str %}
+  <hr>
+  <h1><b>RESULTAT:{{ search_str|upper }}</b></h1>
+  <hr>
+  {% endif %}
+  <ul>
+    {% for article in articles %}
+     <li class=content-link>
+       <span class="a-date">{{ article.date|date:'Ymd' }}</span>
+       {% if article.is_new %}
+       <span class="new">nouveau</span>
+       {%endif %}
+       <a href="{% url 'detail' article.uid %}">
+         <strong>{{ article.title }}</strong>
+       </a>
+     </li>
+     {% empty %}
+     {% if search_str %}
+     <li>Aucun résultat.</li>
+     {% endif %}
+     {% endfor %}
+  </ul>
+  <hr>
+  <button id="btn-back" type="button" onclick="history.back()">retour</button>
+</main>
+{% endblock %}

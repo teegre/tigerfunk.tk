@@ -34,16 +34,33 @@
 <hr>
 <main>
   <!-- Recent -->
-  <h2><b>Contenu</b></h2>
+  <div class="content-section">
+    <div>
+      <h2>
+        <b>Contenu</b>
+      </h2>
+    </div>
+    <button id="btn-back" onclick="window.location.href='{% url 'search' %}'">recherche</button>
+  </div>
   <small>À consommer dans les 30 jours.</small>
   <hr>
   <ul>
    {% for article in articles %}
-     {% if article.recently_published and not article.hidden %}
-     <li class=content-link><span class="a-date">{{ article.date|date:'Ymd' }}</span> {% if article.is_new %}<span class="new">nouveau</span> {%endif %}<a href="{% url 'detail' article.uid %}"><strong>{{ article.title }}</strong></a></li>
+     {% if article.recently_published %}
+     <li class=content-link>
+       <span class="a-date">{{ article.date|date:'Ymd' }}</span>
+       {% if article.is_new %}
+       <span class="new">nouveau</span>
+       {%endif %}
+       <a href="{% url 'detail' article.uid %}">
+         <strong>{{ article.title }}</strong>
+       </a>
+     </li>
      {% endif %}
    {% empty %}
-     <li><strong>Rien de nouveau sous le soleil.</strong></li>
+     <li>
+       <strong>Rien de nouveau sous le soleil.</strong>
+     </li>
    {% endfor %}
    </ul>
    <hr>
@@ -55,7 +72,13 @@
    <ul class="archives">
    {% for month, arts in article_list %}
    {% with article=arts|first %}
-   <li class="archive-item"><a class="a-date" href="{% url 'archive' article.date.year month %}"><strong>{{ article.date|date:'Y/m' }}</strong></a></li>
+   <li class="archive-item">
+     <a class="a-date" href="{% url 'archive' article.date.year month %}">
+       <strong>
+         {{ article.date|date:'Y/m' }}
+       </strong>
+     </a>
+   </li>
    {% endwith %}
    {% empty %}
      <li><strong>Rien ici.</strong></li>

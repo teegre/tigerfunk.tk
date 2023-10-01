@@ -8,7 +8,6 @@ from home.models import Article
 
 from . import views
 
-
 info_dict = {
   'queryset': Article.objects.filter(hidden=False),
   'date_field': 'date',
@@ -24,6 +23,7 @@ urlpatterns = [
   ),
   path('tag/<slug:name>/', views.articles_by_tag, name='tag'),
   # path('contact/', views.contact_view, name='contact'),
+  path('search/', views.SearchView.as_view(), name='search'),
   path('articles', views.all_articles, name='all'),
   path('feed/', views.LatestEntriesFeed(), name='feed'),
   path('sitemap/', sitemap,

@@ -105,6 +105,19 @@ def articles_by_tag(request, name):
 
   return render(request, 'home/tag.html', {'tag': tag, 'page_obj': page_obj})
 
+class SearchView(generic.ListView):
+  model = Article
+  template_name = 'home/search.html'
+
+  def get_context_data(self, **kwargs):
+    context = super().get_context_data(**kwargs)
+    search_str = self.request.GET.get('q')
+    if search_str:
+      articles = Article.objects.filter(title__icontains=search_str, hidden=False)
+      context['articles'] = articles
+      context['search_str'] = search_str
+    return context
+
 # def contact_view(request):
 #  """ Send message from contact form """
 #  if request.method == 'POST':

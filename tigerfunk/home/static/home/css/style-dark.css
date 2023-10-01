@@ -185,3 +185,7 @@ iframe {
   opacity: 0.1;
   cursor: default;
 }
+
+.search {
+  color: #777;
+}
