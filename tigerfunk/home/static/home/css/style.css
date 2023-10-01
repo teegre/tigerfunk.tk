@@ -358,14 +358,14 @@ main table tr:nth-child(odd) {
   background: lightgray;
 }
 
-.video {
+.video, .player {
   text-align: center;
 }
 
 iframe {
   width: 100%;
   max-width: 560px;
-  max-height: 315px;
+  max-height: 560px;
   border-color: purple;
 }
 
