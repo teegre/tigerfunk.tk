@@ -196,6 +196,18 @@ h3, h4, h5, h6 {
   transition: .25s;
 }
 
+.content-section {
+  display: flex;
+  align-items: baseline;
+}
+
+.content-section #btn-back {
+  align-self: flex-end;
+  margin-left: auto;
+  font-size: x-small;
+  font-weight: bold;
+}
+
 hr {
   border: 1px solid;
   color: purple;
@@ -356,6 +368,18 @@ main table th {
 
 main table tr:nth-child(odd) {
   background: lightgray;
+}
+
+.search {
+  font-family: Roboto, sans-serif;
+  font-size: 6ch;
+  font-weight: bolder;
+  letter-spacing: -3.5px;
+  background-color: transparent;
+  color: purple;
+  border: none;
+  outline: none;
+  width: 100%;
 }
 
 .video, .player {
