@@ -11,6 +11,22 @@
   </head>
   <body>
     <script>
+      function isDarkMode() {
+        let cookies = document.cookie.split(";");
+        for (var i=0; i<cookies.length; i++) {
+          let cookie = cookies[i].split("=");
+          let key = cookie[0].trim();
+          let value = cookie[1];
+          if (key === "dark-mode") {
+            if (value === "true")
+              return 1;
+            else
+              return 2;
+          }
+        }
+        return 0;
+      }
+
       function toggleDarkMode() {
         let ss = document.styleSheets;
         if (ss.length === 1) {
@@ -42,14 +58,12 @@
             nuit
           </button>
           <script>
-            if (document.cookie === "dark-mode=true") {
+            if (isDarkMode() === 1)
               toggleDarkMode();
-            }
             {% is_night as night %}
             {% if night is True %}
-            if (document.cookie === "") {
+            if (isDarkMode() === 0)
               toggleDarkMode();
-            }
             {% endif %}
           </script>
         </div>
@@ -62,7 +76,7 @@
       {% endblock %}
       <hr>
       <script>
-        if (document.cookie === "dark-mode=true") {
+        if (isDarkMode() === 1) {
           document.getElementById("dark-mode-button").innerHTML = "jour";
         } else {
           document.getElementById("dark-mode-button").innerHTML = "nuit";
