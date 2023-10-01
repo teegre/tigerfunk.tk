@@ -82,11 +82,15 @@ class ArchivedArticle(generic.MonthArchiveView): # pylint: disable=too-many-ance
   template_name = 'home/archive.html'
   context_object_name = 'articles'
 
-class AllArticles(generic.ListView):
+def all_articles(request):
   """ Show all articles """
-  queryset = Article.objects.filter(hidden=False).order_by('-date')
-  template_name = 'home/all.html'
-  context_object_name = 'articles'
+  articles = Article.objects.filter(hidden=False).order_by('-date')
+  paginator = Paginator(articles, 15, orphans=2)
+
+  page_number = request.GET.get('page')
+  page_obj = paginator.get_page(page_number)
+
+  return render(request, 'home/all.html', {'page_obj': page_obj})
 
 def articles_by_tag(request, name):
   """ Article list by tag """
