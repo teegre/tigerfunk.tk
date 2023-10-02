@@ -506,6 +506,10 @@ iframe {
     text-align: center;
   }
 
+ .logo #dark-mode-button {
+    align-self: start;
+  }
+
   h1 {
     font-size: 3ch;
     letter-spacing: -2px;
