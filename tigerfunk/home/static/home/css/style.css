@@ -164,12 +164,12 @@ h3, h4, h5, h6 {
 
 #dark-mode-button {
   border: none;
-  font-size: small;
+  font-size: x-small;
   font-weight: bold;
   font-variant: small-caps;
   background: purple;
   color: white;
-  padding: 0px 2px 0px 2px;
+  padding: 2px 2px 2px 2px;
   border-radius: 2px;
   vertical-align: middle;
   cursor: pointer;
@@ -177,7 +177,7 @@ h3, h4, h5, h6 {
 
 .logo #dark-mode-button {
   margin-left: auto;
-  align-self: flex-start;
+  align-self: center;
 }
 
 #btn-back {
