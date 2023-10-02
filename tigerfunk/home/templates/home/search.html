@@ -10,7 +10,7 @@ tigerfunk.tk [recherche]
 {% block body %}
 <form action="{% url 'search' %}" method="get">
   <label for="q">&gt;&gt;</label>
-  <input class="search" name="q" type="text" placeholder="Recherche..." autofocus>
+  <input class="search" name="q" type="text" placeholder="Recherche..." required autofocus>
 </form>
 <main>
   {% if search_str %}
