@@ -39,6 +39,7 @@ class Article(models.Model):
   title = models.CharField(max_length=100)
   date = models.DateTimeField('date de publication')
   entry = models.TextField()
+  keywords = models.CharField(max_length=255)
   hidden = models.BooleanField(default=False)
   tag = models.ManyToManyField(Tag)
 
