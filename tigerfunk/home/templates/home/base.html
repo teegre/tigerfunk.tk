@@ -38,24 +38,25 @@
           css.href = "{% static 'home/css/style-dark.css' %}";
           css.setAttribute("id", "dark-mode");
           head.appendChild(css);
-          document.getElementById("dark-mode-button").innerHTML = "jour"
+          document.getElementById("dark-mode-button").innerHTML = "thème:nuit"
           document.cookie = "dark-mode=true; samesite=lax; path=/";
         } else {
           // Unload dark mode
           let css = document.getElementById("dark-mode");
           css.parentNode.removeChild(css);
-          document.getElementById("dark-mode-button").innerHTML = "nuit"
+          document.getElementById("dark-mode-button").innerHTML = "thème:jour"
           document.cookie = "dark-mode=false; samesite=lax; path=/";
         }
       }
     </script>
     <div>
       <header>
+        <hr>
         <div class="logo">
           <a class="logo-home" href="{% url 'index' %}">TIGERFUNK.TK</a>
           <a class="logo-mg" href="{% url 'all' %}">500mg</a>
           <button id="dark-mode-button" onclick="toggleDarkMode()">
-            nuit
+            thème:jour
           </button>
           <script>
             if (isDarkMode() === 1)
@@ -77,9 +78,9 @@
       <hr>
       <script>
         if (isDarkMode() === 1) {
-          document.getElementById("dark-mode-button").innerHTML = "jour";
+          document.getElementById("dark-mode-button").innerHTML = "thème:nuit";
         } else {
-          document.getElementById("dark-mode-button").innerHTML = "nuit";
+          document.getElementById("dark-mode-button").innerHTML = "thème:jour";
         }
       </script>
       <footer>

@@ -1,14 +1,21 @@
 {# Search form #}
 {% extends 'home/base.html' %}
+{% block title %}
+{% if search_str %}
+tigerfunk.tk [{{ search_str|lower }}]
+{% else %}
+tigerfunk.tk [recherche]
+{% endif %}
+{% endblock %}
 {% block body %}
 <form action="{% url 'search' %}" method="get">
-  <label for="q">&gt;</label>
+  <label for="q">&gt;&gt;</label>
   <input class="search" name="q" type="text" placeholder="Recherche..." autofocus>
 </form>
 <main>
   {% if search_str %}
   <hr>
-  <h1><b>RESULTAT:{{ search_str|upper }}</b></h1>
+  <h1><b>RESULTATS:{{ search_str|upper }}({{ articles.count }})</b></h1>
   <hr>
   {% endif %}
   <ul>
