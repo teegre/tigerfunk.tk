@@ -208,6 +208,25 @@ h3, h4, h5, h6 {
   font-weight: bold;
 }
 
+.page-title-section {
+  display: flex;
+}
+
+.art-count {
+  font-size: small;
+  font-weight: bold;
+  background-color: purple;
+  color: whitesmoke;
+  padding: 2px 4px 2px 4px;
+  border-radius: 4px;
+}
+
+.page-title-section .art-count {
+  margin-left: 3px;
+  align-self: center;
+}
+
+
 hr {
   border: 1px solid;
   color: purple;

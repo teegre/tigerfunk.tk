@@ -1,7 +1,14 @@
 {% extends 'home/base.html' %}
 {% block title %}tigerfunk.tk [{{ tag.name }}]{% endblock %}
 {% block body %}
-  <h1><b>SUBSTANCE:{{ tag.name|upper }}</b></h1>
+  <div class="page-title-section">
+    <div>
+      <h1>
+        <b>SUBSTANCE:{{ tag.name|upper }}</b>
+      </h1>
+    </div>
+    <div class="art-count">{{ count }}</div>
+  </div>
   <hr>
   <main>
     <h2><b>Contenu</b></h2>
