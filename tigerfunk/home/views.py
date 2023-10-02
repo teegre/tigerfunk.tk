@@ -121,7 +121,10 @@ class SearchView(generic.ListView):
     context = super().get_context_data(**kwargs)
     search_str = self.request.GET.get('q')
     if search_str:
-      articles = Article.objects.filter(title__icontains=search_str, hidden=False)
+      articles = Article.objects.filter(
+          Q(title__icontains=search_str) | Q(keywords__icontains=search_str),
+          hidden=False
+      )
       context['articles'] = articles
       context['search_str'] = search_str
     return context
