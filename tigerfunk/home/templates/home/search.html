@@ -15,7 +15,14 @@ tigerfunk.tk [recherche]
 <main>
   {% if search_str %}
   <hr>
-  <h1><b>RESULTATS:{{ search_str|upper }}({{ articles.count }})</b></h1>
+  <div class="page-title-section">
+    <div>
+      <h1>
+        <b>RESULTATS:{{ search_str|upper }}</b>
+      </h1>
+    </div>
+    <div class="art-count">{{ articles.count }}</div>
+  </div>
   <hr>
   {% endif %}
   <ul>
