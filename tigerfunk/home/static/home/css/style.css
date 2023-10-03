@@ -26,6 +26,7 @@ html {
   color: purple;
   letter-spacing: -3.5px;
   text-decoration: none;
+  transition: .25s;
 }
 
 .logo-mg {
@@ -34,6 +35,12 @@ html {
   color: purple;
   margin-left: 0.25ch;
   text-decoration: none;
+  transition: .25s;
+}
+
+.logo-home:hover, .logo-mg:hover {
+  opacity: .5;
+  transition: .25s;
 }
 
 div .message {
