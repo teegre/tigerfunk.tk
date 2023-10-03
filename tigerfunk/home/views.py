@@ -1,6 +1,6 @@
 """ Views """
-import datetime
-from django.utils import timezone
+from datetime import timedelta
+from django.utils.timezone import now
 from django.views import generic
 # from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.syndication.views import Feed
@@ -46,10 +46,10 @@ class HomeView(generic.ListView):
   def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)
     context['articles'] = Article.objects.filter( # pylint: disable=no-member
-      date__gte=timezone.now() - datetime.timedelta(days=30), hidden=False
+      date__gte=now() - timedelta(days=30), hidden=False
     )
     context['archives'] = Article.objects.filter( # pylint: disable=no-member
-      date__lte=timezone.now() - datetime.timedelta(days=30), hidden=False
+      date__lte=now() - timedelta(days=30), hidden=False
     )
    # pylint: disable=no-member
    # context['tags'] = Article.objects.filter(hidden=False).values(
@@ -74,13 +74,16 @@ class ArticleDetail(generic.DetailView):
 
 class ArchivedArticle(generic.MonthArchiveView): # pylint: disable=too-many-ancestors
   """ Archived article view """
-  queryset = Article.objects.filter(
-    date__lt=timezone.now() - datetime.timedelta(days=30)).filter(
-      hidden=False
-    ) # pylint: disable=no-member
   date_field = 'date'
   template_name = 'home/archive.html'
   context_object_name = 'articles'
+  queryset = Article.objects.all()
+
+  def get_queryset(self):
+    return self.queryset.filter(
+    date__lt=now() - timedelta(days=30),
+    hidden=False
+  ) # pylint: disable=no-member
 
 def all_articles(request):
   """ Show all articles """
@@ -122,8 +125,8 @@ class SearchView(generic.ListView):
     search_str = self.request.GET.get('q')
     if search_str:
       articles = Article.objects.filter(
-          Q(title__icontains=search_str) | Q(keywords__icontains=search_str),
-          hidden=False
+        Q(title__icontains=search_str) | Q(keywords__icontains=search_str),
+        hidden=False
       )
       context['articles'] = articles
       context['search_str'] = search_str
