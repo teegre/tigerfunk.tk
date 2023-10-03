@@ -35,8 +35,8 @@ h3, h4, h5, h6 {
 }
 
 .tag-btn:visited {
-  background: #999;
-  color: #EEE;
+  background: #222;
+  color: #999;
 }
 
 .tag-btn:hover {
@@ -45,8 +45,8 @@ h3, h4, h5, h6 {
 }
 
 .tag-btn:visited .tag-count {
-  background: gold;
-  color: darkorchid;
+  background: #111;
+  color: #777;
 }
 
 .tag-btn:hover .tag-count {
