@@ -414,9 +414,7 @@ main table tr:nth-child(odd) {
 
 iframe {
   width: 100%;
-  max-width: 560px;
-  max-height: 560px;
-  border-color: purple;
+  border: none;
 }
 
 @keyframes message {
