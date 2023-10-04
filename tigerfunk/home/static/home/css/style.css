@@ -7,7 +7,7 @@ html {
   background: whitesmoke;
   color: darkmagenta;
   letter-spacing: -1px;
-  max-width: 70ch;
+  max-width: 100ch;
   margin: auto;
 }
 
@@ -21,16 +21,16 @@ html {
 }
 
 .logo-home {
-  font-size: 4ch;
+  font-size: 4vw;
   font-weight: bolder;
   color: purple;
-  letter-spacing: -3.5px;
+  letter-spacing: -0.25vw;
   text-decoration: none;
   transition: .25s;
 }
 
 .logo-mg {
-  font-size: xx-large;
+  font-size: 2.5vw;
   font-weight: bolder;
   color: purple;
   margin-left: 0.25ch;
@@ -505,8 +505,9 @@ iframe {
 }
 
 @media (max-width: 441px) {
-  .logo {
-    font-size: 2ch;
+
+  .logo-home, .logo-mg {
+    letter-spacing: -1px;
   }
 
   .tag-bar {
@@ -530,10 +531,6 @@ iframe {
 
   #btn-back {
     text-align: center;
-  }
-
- .logo #dark-mode-button {
-    align-self: start;
   }
 
   h1 {
