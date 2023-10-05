@@ -227,10 +227,9 @@ h3, h4, h5, h6 {
 }
 
 .page-title-section .art-count {
-  margin-left: 3px;
+  margin-left: 1ch;
   align-self: center;
 }
-
 
 hr {
   border: 1px solid;
@@ -514,9 +513,11 @@ iframe {
   .logo-home {
     font-size: 2ch;
   }
+
   .logo-mg {
     font-size: 1.5ch;
   }
+
   .logo-home, .logo-mg {
     letter-spacing: -1.5px;
   }

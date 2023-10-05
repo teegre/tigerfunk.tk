@@ -9,9 +9,13 @@ tigerfunk.tk [recherche]
 {% endblock %}
 {% block body %}
 <form action="{% url 'search' %}" method="get">
-  <label for="q">&gt;&gt;</label>
   <input class="search" name="q" type="text" placeholder="Recherche..." required autofocus>
 </form>
+<span style="margin-left: 5px;">
+  <small>
+    Recherche par titre ou mot clef...
+  </small>
+</span>
 <main>
   {% if search_str %}
   <hr>
