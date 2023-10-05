@@ -21,16 +21,14 @@ html {
 }
 
 .logo-home {
-  font-size: 4vw;
   font-weight: bolder;
   color: purple;
-  letter-spacing: -0.25vw;
+  letter-spacing: -0.225vw;
   text-decoration: none;
   transition: .25s;
 }
 
 .logo-mg {
-  font-size: 2.5vw;
   font-weight: bolder;
   color: purple;
   margin-left: 0.25ch;
@@ -502,10 +500,25 @@ iframe {
   cursor: default;
 }
 
+@media (min-width: 442px) {
+  .logo-home {
+    font-size: clamp(2ch, 4vw, 5ch);
+  }
+  .logo-mg {
+    font-size: clamp(1.5ch, 2.5vw, 3.5ch);
+  }
+}
+
 @media (max-width: 441px) {
 
+  .logo-home {
+    font-size: 2ch;
+  }
+  .logo-mg {
+    font-size: 1.5ch;
+  }
   .logo-home, .logo-mg {
-    letter-spacing: -1px;
+    letter-spacing: -1.5px;
   }
 
   .tag-bar {
