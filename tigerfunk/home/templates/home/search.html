@@ -8,6 +8,16 @@ tigerfunk.tk [recherche]
 {% endif %}
 {% endblock %}
 {% block body %}
+<ul class="keywords">
+{% for word in keywords %}
+  <li class="keyword">
+    <span class="keyword-{{ word.freq }}" style="font-size: {% widthratio word.freq 1 2 %}ch;">
+      {{ word.word|upper }}
+    </span>
+  </li>
+{% endfor %}
+</ul>
+<hr>
 <form action="{% url 'search' %}" method="get">
   <input class="search" name="q" type="text" placeholder="Recherche..." required autofocus>
 </form>

@@ -405,6 +405,50 @@ main table tr:nth-child(odd) {
   width: 100%;
 }
 
+.keywords {
+  background-color: white;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.75ch;
+  letter-spacing: -2px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  vertical-align: middle;
+  margin: 0;
+  padding: 2px 2px 2px 2px;
+  max-height: 60ch;
+  overflow-y: scroll;
+}
+
+.keyword {
+  display: flex;
+  align-items: center;
+  margin: 4px 4px 4px 4px;
+  rotate: 20deg;
+}
+
+.keyword-1 {
+  letter-spacing: initial;
+  font-weight: lighter;
+}
+
+.keyword:nth-of-type(4n+1) {
+  color: blueviolet;
+}
+
+.keyword:nth-of-type(4n+2) {
+  color: plum;
+}
+
+.keyword:nth-of-type(4n+3) {
+  color: violet;
+}
+
+.keyword:nth-of-type(4n+4) {
+  color: darkorchid;
+}
+
 .video, .player {
   text-align: center;
 }
