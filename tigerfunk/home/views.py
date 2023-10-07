@@ -1,5 +1,6 @@
 """ Views """
 from datetime import timedelta
+from collections import namedtuple
 from django.utils.timezone import now
 from django.views import generic
 # from django.http import HttpResponse, HttpResponseRedirect
@@ -122,14 +123,23 @@ class SearchView(generic.ListView):
 
   def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)
+
+    articles = Article.objects.filter(hidden=False)
+
+    wordlists = [ a.keywords.split() for a in articles if a.keywords ]
+    wordlist = [word for words in wordlists for word in words]
+    Word = namedtuple('Word', ['word', 'freq'])
+    keywords = {Word(word, wordlist.count(word)) for word in wordlist}
+
     search_str = self.request.GET.get('q')
     if search_str:
-      articles = Article.objects.filter(
+      articles = articles.filter(
         Q(title__icontains=search_str) | Q(keywords__icontains=search_str),
-        hidden=False
       )
       context['articles'] = articles
       context['search_str'] = search_str
+
+    context['keywords'] = keywords
     return context
 
 # def contact_view(request):

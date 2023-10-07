@@ -190,6 +190,10 @@ iframe {
   color: #777;
 }
 
+.keywords {
+  background-color: initial;
+}
+
 .art-count {
   background-color: #444;
   color: #777;
