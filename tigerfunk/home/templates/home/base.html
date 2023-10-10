@@ -34,8 +34,8 @@
       }
 
       function toggleDarkMode() {
-        let ss = document.styleSheets;
-        if (ss.length === 1) {
+        let css = document.getElementById("dark-mode");
+        if (!css) {
           // Load dark mode
           let head = document.getElementsByTagName("head")[0];
           let css = document.createElement("link");
@@ -44,13 +44,12 @@
           css.href = "{% static 'home/css/style-dark.css' %}";
           css.setAttribute("id", "dark-mode");
           head.appendChild(css);
-          document.getElementById("dark-mode-button").innerHTML = "thème:nuit"
+          document.getElementById("dark-mode-button").innerText = "thème:nuit"
           document.cookie = "dark-mode=true; samesite=lax; path=/";
         } else {
           // Unload dark mode
-          let css = document.getElementById("dark-mode");
           css.parentNode.removeChild(css);
-          document.getElementById("dark-mode-button").innerHTML = "thème:jour"
+          document.getElementById("dark-mode-button").innerText = "thème:jour"
           document.cookie = "dark-mode=false; samesite=lax; path=/";
         }
       }
@@ -84,9 +83,9 @@
       <hr>
       <script>
         if (isDarkMode() === 1) {
-          document.getElementById("dark-mode-button").innerHTML = "thème:nuit";
+          document.getElementById("dark-mode-button").innerText = "thème:nuit";
         } else {
-          document.getElementById("dark-mode-button").innerHTML = "thème:jour";
+          document.getElementById("dark-mode-button").innerText = "thème:jour";
         }
       </script>
       <footer>
