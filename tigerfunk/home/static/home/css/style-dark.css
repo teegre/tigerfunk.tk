@@ -198,3 +198,25 @@ iframe {
   background-color: #444;
   color: #777;
 }
+
+.album-cover {
+  border: 2px solid #222;
+}
+
+.main-play-btn img {
+  filter: invert(53%) sepia(0%) saturate(1362%) hue-rotate(219deg) brightness(84%) contrast(104%);
+}
+
+[class^=play-btn-] {
+  background-color: #222;
+  border-radius: 4px;
+}
+
+[class^=play-btn-] img {
+  filter: invert(53%) sepia(0%) saturate(1362%) hue-rotate(219deg) brightness(84%) contrast(104%);
+}
+
+.controls {
+  background-color: #222;
+  color: #777;
+}
