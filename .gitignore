@@ -5,7 +5,6 @@ db.sqlite3*
 *~
 __pycache__
 tigerfunk/static
-tigerfunk/home/static/home/css/bootstrap*
-tigerfunk/home/static/home/js/bootstrap*
+tigerfunk/home/static/home/media/*
 tigerfunk/home/migrations
 TODO.md
