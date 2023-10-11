@@ -39,7 +39,9 @@ class Article(models.Model):
   title = models.CharField(max_length=100)
   date = models.DateTimeField('date de publication')
   entry = models.TextField()
-  keywords = models.CharField(max_length=255)
+  keywords = models.CharField(max_length=255, default='', blank=True)
+  og_type = models.CharField(max_length=50, default='', blank=True)
+  og_image = models.CharField(max_length=255, default='', blank=True)
   hidden = models.BooleanField(default=False)
   tag = models.ManyToManyField(Tag)
 

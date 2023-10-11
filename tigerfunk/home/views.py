@@ -1,4 +1,5 @@
 """ Views """
+import urllib
 from datetime import timedelta
 from collections import namedtuple
 from django.utils.timezone import now
@@ -72,6 +73,12 @@ class ArticleDetail(generic.DetailView):
 
   slug_field = 'uid'
   slug_url_kwarg = 'uid'
+
+  def get_context_data(self, **kwargs):
+    context = super().get_context_data(**kwargs)
+    context['domain'] = self.request.build_absolute_uri('/')
+    context['current_url'] = self.request.build_absolute_uri()
+    return context
 
 class ArchivedArticle(generic.MonthArchiveView): # pylint: disable=too-many-ancestors
   """ Archived article view """
