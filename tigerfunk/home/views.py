@@ -63,6 +63,8 @@ class HomeView(generic.ListView):
 
     context['message'] = get_random_message()
 
+    context['domain'] = self.request.build_absolute_uri('/')
+
     return context
 
 class ArticleDetail(generic.DetailView):
