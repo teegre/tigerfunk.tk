@@ -25,7 +25,9 @@
     {% else %}
     <meta name="og:title" content="TIGERFUNK.TK">
     <meta name="og:type" content="website">
-    <meta name="og:image" content="{% static 'home/img/og-default-img.png' %}">
+    {% with img_url=domain|add:'static/home/img/og-default-img.png' %}
+    <meta name="og:image" content="{{ img_url }}">
+    {% endwith %}
     <meta name="og:url" content="https://tigerfunk.tk">
     {% endif %}
     <link rel="stylesheet" type="text/css" href="{% static 'home/css/style.css' %}">
