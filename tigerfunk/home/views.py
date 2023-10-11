@@ -112,7 +112,9 @@ def articles_by_tag(request, name):
   """ Article list by tag """
   articles = Article.objects.filter(
     tag__name=name).filter(
-      hidden=False)
+      date__lte=now(),
+      hidden=False
+    )
   tag = Tag.objects.get(name=name)
   paginator = Paginator(articles, 15, orphans=2)
 
@@ -178,7 +180,7 @@ class LatestEntriesFeed(Feed):
 
   def items(self):
     """An article entry"""
-    return Article.objects.filter(hidden=False).order_by('-date')[:15] # pylint: disable=no-member
+    return Article.objects.filter(date__lte=now(), hidden=False).order_by('-date')[:15] # pylint: disable=no-member
 
   def item_title(self, item):
     """Article title"""
