@@ -132,7 +132,7 @@ class SearchView(generic.ListView):
   def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)
 
-    articles = Article.objects.filter(hidden=False)
+    articles = Article.objects.filter(date__lte=now(), hidden=False)
 
     wordlists = [ a.keywords.split() for a in articles if a.keywords ]
     wordlist = [word for words in wordlists for word in words]
