@@ -1,5 +1,4 @@
 """ Views """
-import urllib
 from datetime import timedelta
 from collections import namedtuple
 from django.utils.timezone import now
@@ -97,7 +96,7 @@ class ArchivedArticle(generic.MonthArchiveView): # pylint: disable=too-many-ance
 
 def all_articles(request):
   """ Show all articles """
-  articles = Article.objects.filter(hidden=False).order_by('-date')
+  articles = Article.objects.filter(date__lte=now(), hidden=False).order_by('-date')
   paginator = Paginator(articles, 15, orphans=2)
 
   page_number = request.GET.get('page')
