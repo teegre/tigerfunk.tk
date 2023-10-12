@@ -255,7 +255,8 @@ main ul {
 }
 
 .article-list-section {
-  height: 300px;
+  line-height: 1.2;
+  height: 18;
 }
 
 .scroll {
