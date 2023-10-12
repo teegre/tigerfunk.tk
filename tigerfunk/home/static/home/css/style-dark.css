@@ -163,7 +163,7 @@ iframe {
   border: 1px solid #222;
 }
 
-.page-btn {
+.page-btn, .page-btn:visited {
   background: #444;
   color: whitesmoke;
   border: 1px solid #444;
@@ -175,7 +175,7 @@ iframe {
   border: 1px solid #444;
 }
 
-.page-btn:hover {
+.page-btn:hover, .page-btn:visited:hover {
   background: whitesmoke;
   color: #444;
   border: 1px solid whitesmoke;
