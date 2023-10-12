@@ -30,18 +30,22 @@ tigerfunk.tk [recherche]
   </span>
 </span>
 <main>
-  {% if search_str %}
   <hr>
   <div class="page-title-section">
     <div>
       <h1>
+        {% if search_str %}
         <b>RESULTATS:{{ search_str|upper }}</b>
+        {% else %}
+        <b>---</b>
+        {% endif %}
       </h1>
     </div>
+    {% if search_str %}
     <div class="art-count">{{ articles.count }}</div>
+    {% endif %}
   </div>
   <hr>
-  {% endif %}
   <div class="article-list-section scroll">
     <ul>
       {% for article in articles %}
@@ -57,6 +61,8 @@ tigerfunk.tk [recherche]
       {% empty %}
       {% if search_str %}
       <li>Aucun résultat.</li>
+      {% else %}
+      <li>---</li>
       {% endif %}
       {% endfor %}
     </ul>
