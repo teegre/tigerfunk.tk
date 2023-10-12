@@ -13,19 +13,21 @@
   <main>
     <h2><b>Contenu</b></h2>
     <hr>
-    <ul>
-      {% for article in page_obj %}
-      <li class=content-link>
-        <span class="a-date">{{ article.date|date:'Ymd' }}</span>
-        {% if article.is_new %}<span class="new">nouveau</span>{%endif %}
-        <a href="{% url 'detail' article.uid %}">
-          <strong>{{ article.title }}</strong>
-        </a>
-      </li>
-      {% empty %}
-      <li><strong>Substance orpheline</strong></li>
-      {% endfor %}
-    </ul>
+    <div class="article-list-section">
+      <ul>
+        {% for article in page_obj %}
+        <li class=content-link>
+          <span class="a-date">{{ article.date|date:'Ymd' }}</span>
+          {% if article.is_new %}<span class="new">nouveau</span>{%endif %}
+          <a href="{% url 'detail' article.uid %}">
+            <strong>{{ article.title }}</strong>
+          </a>
+        </li>
+        {% empty %}
+        <li><strong>Substance orpheline</strong></li>
+        {% endfor %}
+      </ul>
+    </div>
     {% if page_obj.has_next or page_obj.has_previous %}
       {% include 'home/paginator.html' %}
     {% endif %}
