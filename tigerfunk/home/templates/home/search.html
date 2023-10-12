@@ -39,23 +39,25 @@ tigerfunk.tk [recherche]
   </div>
   <hr>
   {% endif %}
-  <ul>
-    {% for article in articles %}
-     <li class=content-link>
-       <span class="a-date">{{ article.date|date:'Ymd' }}</span>
-       {% if article.is_new %}
-       <span class="new">nouveau</span>
-       {%endif %}
-       <a href="{% url 'detail' article.uid %}">
-         <strong>{{ article.title }}</strong>
-       </a>
-     </li>
-     {% empty %}
-     {% if search_str %}
-     <li>Aucun résultat.</li>
-     {% endif %}
-     {% endfor %}
-  </ul>
+  <div class="article-list-section scroll">
+    <ul>
+      {% for article in articles %}
+      <li class=content-link>
+        <span class="a-date">{{ article.date|date:'Ymd' }}</span>
+        {% if article.is_new %}
+        <span class="new">nouveau</span>
+        {%endif %}
+        <a href="{% url 'detail' article.uid %}">
+          <strong>{{ article.title }}</strong>
+        </a>
+      </li>
+      {% empty %}
+      {% if search_str %}
+      <li>Aucun résultat.</li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
   <hr>
   <button id="btn-back" type="button" onclick="history.back()">retour</button>
 </main>

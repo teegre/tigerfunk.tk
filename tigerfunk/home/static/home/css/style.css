@@ -254,6 +254,14 @@ main ul {
   display: contents;
 }
 
+.article-list-section {
+  height: 32ch;
+}
+
+.scroll {
+  overflow-y: scroll;
+}
+
 article ul {
   list-style: circle;
   display: block;
