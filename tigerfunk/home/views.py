@@ -1,4 +1,5 @@
 """ Views """
+import re
 from datetime import timedelta
 from collections import namedtuple
 from django.utils.timezone import now
@@ -131,6 +132,12 @@ class SearchView(generic.ListView):
   model = Article
   template_name = 'home/search.html'
 
+  def parse_search_date(self, date_scheme):
+    ''' Parse a date YYYY/MM or YYYY/ '''
+    date = date_scheme.split('/')
+    Date = namedtuple('Date', ['year', 'month'])
+    return Date(date[0], date[1])
+
   def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)
 
@@ -143,9 +150,17 @@ class SearchView(generic.ListView):
 
     search_str = self.request.GET.get('q')
     if search_str:
-      articles = articles.filter(
-        Q(title__icontains=search_str) | Q(keywords__icontains=search_str),
-      )
+      if re.match(r'^(19|20)\d{2}/(0[1-9]|1[0-2])?$', search_str):
+        date = self.parse_search_date(search_str)
+        if date.month:
+          articles = articles.filter(date__year=date.year, date__month=date.month)
+        else:
+          articles = articles.filter(date__year=date.year)
+      else:
+        articles = articles.filter(
+          Q(title__icontains=search_str) | Q(keywords__icontains=search_str),
+        )
+
       context['articles'] = articles
       context['search_str'] = search_str
 
