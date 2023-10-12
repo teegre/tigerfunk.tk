@@ -12,23 +12,23 @@
     <meta name="designer" content="Stéphane MEYER">
     <meta name="copyright" content="© {% now 'Y' %} tigerfunk.tk">
     {% if article %}
-    <meta name="og:title" content="{{ article.title }}">
+    <meta property="og:title" content="{{ article.title }}">
     {% if article.og_type %}
-    <meta name="og:type" content="{{ article.og_type }}">
+    <meta property="og:type" content="{{ article.og_type }}">
     {% endif %}
     {% if article.og_image %}
     {% with img_url=domain|add:article.og_image %}
-    <meta name="og:image" content="{{ img_url }}">
+    <meta property="og:image" content="{{ img_url }}">
     {% endwith %}
     {% endif %}
-    <meta name="og:url" content="{{ current_url }}">
+    <meta property="og:url" content="{{ current_url }}">
     {% else %}
-    <meta name="og:title" content="TIGERFUNK.TK">
-    <meta name="og:type" content="website">
+    <meta property="og:title" content="TIGERFUNK.TK">
+    <meta property="og:type" content="website">
     {% with img_url=domain|add:'static/home/img/og-default-img.png' %}
-    <meta name="og:image" content="{{ img_url }}">
+    <meta property="og:image" content="{{ img_url }}">
     {% endwith %}
-    <meta name="og:url" content="https://tigerfunk.tk">
+    <meta property="og:url" content="https://tigerfunk.tk">
     {% endif %}
     <link rel="stylesheet" type="text/css" href="{% static 'home/css/style.css' %}">
     <link rel="shortcut icon" type="img/x-icon" href="{% static 'home/img/favicon.png' %}">
