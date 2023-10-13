@@ -631,10 +631,17 @@ iframe {
   margin-right: 4px;
 }
 
+/* video player */
+
+.video-player {
+  width: 100%;
+}
+
 @media (min-width: 442px) {
   .logo-home {
     font-size: clamp(2ch, 4vw, 5ch);
   }
+
   .logo-mg {
     font-size: clamp(1.5ch, 2.5vw, 3.5ch);
   }
