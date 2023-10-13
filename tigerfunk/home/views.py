@@ -35,8 +35,8 @@ class HomeView(generic.ListView):
 
   def custom_tag_query_set(self):
     data = Tag.objects.annotate(
-      count=Count(
-        'article', filter=Q(article__hidden=False)
+        count=Count(
+          'article', filter=Q(article__hidden=False, article__date__lte=now())
       )
     ).filter(count__gt=0).values('id', 'name').order_by('-count', 'name')
 
