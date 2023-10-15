@@ -142,7 +142,7 @@ h3, h4, h5, h6 {
   border-radius: 4px;
   text-decoration: none;
   font-variant: small-caps;
-  transition: .25s ease-in-out;
+  transition: 0.25s ease-in-out;
 }
 
 .tag-btn:visited {
@@ -153,7 +153,7 @@ h3, h4, h5, h6 {
 .tag-btn:hover {
   background: white;
   color: purple;
-  transition: .25s ease-in-out;
+  transition: 0.25s ease-in-out;
 }
 
 .tag-btn:visited .tag-count {
@@ -164,7 +164,7 @@ h3, h4, h5, h6 {
 .tag-btn:hover .tag-count {
   background: purple;
   color: white;
-  transition: .25s ease-in-out;
+  transition: 0.25s ease-in-out;
 }
 
 #dark-mode-button {
@@ -190,7 +190,7 @@ h3, h4, h5, h6 {
   color: white;
   padding: 4px;
   border-radius: 4px;
-  transition: .25s ease-in-out;
+  transition: 0.25s ease-in-out;
   border: none;
   font-variant: small-caps;
 }
@@ -198,7 +198,7 @@ h3, h4, h5, h6 {
 #btn-back:hover {
   background: white;
   color: purple;
-  transition: .25s;
+  transition: 0.25s;
 }
 
 .content-section {
@@ -315,18 +315,18 @@ article ul {
 main a {
   color: purple;
   text-decoration: none;
-  transition: .25s ease-in-out;
+  transition: 0.25s ease-in-out;
 }
 
 main a:visited {
   color: darkgray;
-  transition: .25s ease-in-out;  
+  transition: 0.25s ease-in-out;  
 }
 
 main a:hover {
   color: blueviolet;
   text-decoration: 2px underline;
-  transition: .25s ease-in-out;
+  transition: 0.25s ease-in-out;
 }
 
 blockquote {
@@ -352,12 +352,12 @@ blockquote code, main code {
 blockquote a, blockquote cite a {
   color: whitesmoke;
   text-decoration: underline dotted;
-  transition: .25s ease-in-out;
+  transition: 0.25s ease-in-out;
 }
 
 blockquote a:hover, blockquote cite a:hover {
   color: gold;
-  transition: .25s ease-in-out;
+  transition: 0.25s ease-in-out;
 }
 
 main code {
@@ -544,7 +544,7 @@ iframe {
   color: purple;
   border: 1px solid lavenderblush;
   text-decoration: none;
-  transition: .25s;
+  transition: 0.25s;
 }
 
 .inactive {
@@ -567,7 +567,7 @@ iframe {
   border: none;
   background-color: transparent;
   border-radius: 4px;
-  transition: .25s;
+  transition: 0.25s;
 }
 
 .main-play-btn img {
@@ -580,7 +580,8 @@ iframe {
   border: none;
   height: 24px;
   width: 24px;
-  transition: .25s;
+  margin-bottom: 2px;
+  transition: 0.25s;
 }
 
 [class^=play-btn-] img {
@@ -595,7 +596,7 @@ iframe {
   background-color: purple;
   color: whitesmoke;
   border-radius: 4px;
-  margin-top: 4;
+  margin-top: 4px;
 }
 
 .title {
