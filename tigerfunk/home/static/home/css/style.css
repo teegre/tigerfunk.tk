@@ -17,7 +17,7 @@ html {
   width: 100%;
   font-family: Roboto, sans-serif;
   color: purple;
-  overflow: scroll;
+  overflow-x: auto;
 }
 
 .logo-home {
@@ -39,6 +39,21 @@ html {
 .logo-home:hover, .logo-mg:hover {
   opacity: .5;
   transition: .25s;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 3px;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 3px;
+  border-radius: 4px;
 }
 
 div .message {
@@ -255,12 +270,9 @@ main ul {
 }
 
 .article-list-section {
-  line-height: 1.2;
+  line-height: 1.1em;
   height: 18em;
-}
-
-.scroll {
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 article ul {
@@ -302,8 +314,9 @@ article ul {
   row-gap: 8px;
   padding-left: 0;
   margin-bottom: 0;
-  height: 136px;
-  overflow-x: scroll;
+  line-height: 1.1em;
+  height: 5.5em;
+  overflow-x: auto;
 }
 
 .archive-item .a-date {
@@ -370,7 +383,7 @@ main pre {
   padding: 1rem;
   border-radius: 4px;
   line-height: 1.1rem;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 main pre code {
@@ -427,7 +440,8 @@ main table tr:nth-child(odd) {
   margin: 0;
   padding: 2px 2px 2px 2px;
   max-height: 60ch;
-  overflow-y: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .keyword {
@@ -485,7 +499,7 @@ iframe {
   background: darkmagenta;
   color: whitesmoke;
   padding: 2px 4px 2px 4px;
-  overflow-x: scroll;
+  overflow-x: auto;
   animation: bg 2s linear;
 }
 
@@ -693,7 +707,7 @@ iframe {
   footer {
     font-size: smaller;
     white-space: nowrap;
-    overflow-x: scroll;
+    overflow-x: auto;
   }
 
   footer a {
