@@ -11,6 +11,26 @@
   <main>
     <article>{{ article.entry|safe }}</article>
     <hr>
+    {% if article.related.get_queryset %}
+    <u><b>Contenu connexe</b></u> :
+    <br>
+    ---
+    <br>
+    <ul>
+    {% for related_article in article.related.get_queryset %}
+      <li class="content-link">
+        <span class="a-date">{{ related_article.date|date:'Ymd' }}</span>
+        {% if related_article.is_new %}
+        <span class="new">nouveau</span>
+        {% endif %}
+        <a href="{% url 'detail' related_article.uid %}">
+          <strong>{{ related_article.title }}</strong>
+        </a>
+      </li>
+    </ul>
+    {% endfor %}
+    <hr>
+    {% endif %}
     <div class="tag-bar">
       <button id="btn-back" type="button" onclick="history.back()">retour</button>
       <span class="vl"></span>
