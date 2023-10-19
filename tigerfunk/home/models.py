@@ -40,10 +40,11 @@ class Article(models.Model):
   date = models.DateTimeField('date de publication')
   entry = models.TextField()
   keywords = models.CharField(max_length=255, default='', blank=True)
+  hidden = models.BooleanField(default=False)
   og_type = models.CharField(max_length=50, default='', blank=True)
   og_image = models.CharField(max_length=255, default='', blank=True)
-  hidden = models.BooleanField(default=False)
   tag = models.ManyToManyField(Tag)
+  related = models.ManyToManyField('self', blank=True)
 
   @property
   def is_new(self):
