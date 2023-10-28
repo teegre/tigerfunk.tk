@@ -1,20 +1,22 @@
 {% extends 'home/base.html' %}
+{% load static %}
 {% block title %}tigerfunk.tk | {{ article.title }}{% endblock %}
 {% block header %}
   <h1>{{ article.title }}</h1>
   <div class="date">
-    <time class="small ml-1">Le {{ article.date|date:'d F Y' }}</time>
+    <time class="small">Le {{ article.date|date:'d F Y' }}</time>
   </div>
   <hr>
 {% endblock %}
 {% block body %}
+  <script src="{% static 'home/js/loading.js' %}" defer></script>
   <main>
-    <article>{{ article.entry|safe }}</article>
+    <article>
+      {{ article.entry|safe }}
+    </article>
     <hr>
     {% if article.related.get_queryset %}
     <u><b>Contenu connexe</b></u> :
-    <br>
-    ---
     <br>
     <ul>
     {% for related_article in article.related.get_queryset %}

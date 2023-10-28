@@ -4,7 +4,7 @@
 
 html {
   font-family: Arial, Helvetica, sans-serif;
-  background: whitesmoke;
+  background-color: whitesmoke;
   color: darkmagenta;
   letter-spacing: -1px;
   max-width: 100ch;
@@ -275,9 +275,20 @@ main ul {
   overflow-y: auto;
 }
 
+article {
+  position: relative;
+}
+
 article ul {
   list-style: circle;
   display: block;
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -32px 0 0 -32px;
 }
 
 .date {
