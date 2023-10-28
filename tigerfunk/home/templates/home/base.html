@@ -31,8 +31,9 @@
     <meta property="og:description" content="TIGERFUNK.TK 500mg : productions musicales variées.">
     {% endif %}
     <link rel="stylesheet" type="text/css" href="{% static 'home/css/style.css' %}">
-    <link rel="shortcut icon" type="img/x-icon" href="{% static 'home/img/favicon.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'home/css/style-dark.css' %}" id="dark-mode" disabled>
     <script src="{% static '/home/js/dark-mode-manager.js' %}"></script>
+    <link rel="shortcut icon" type="img/x-icon" href="{% static 'home/img/favicon.png' %}">
     <title>{% block title %}{% endblock %}</title>
   </head>
   <body>
@@ -46,7 +47,7 @@
             thème:jour
           </button>
           <script>
-            if (isDarkMode() === 1) {
+            if (isDarkMode()) {
               document.getElementById("dark-mode-button").innerText = "thème:nuit";
             } else {
               document.getElementById("dark-mode-button").innerText = "thème:jour";

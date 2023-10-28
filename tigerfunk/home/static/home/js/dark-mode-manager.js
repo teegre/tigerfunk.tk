@@ -6,44 +6,31 @@ function isDarkMode() {
     let value = cookie[1];
     if (key === "dark-mode") {
       if (value === "true")
-        return 1;
+        return true;
       else
-        return 2;
+        return false;
     }
   }
+
   if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
-    return 1;
-  return 0;
+    return true;
+  return false;
 }
 
 function toggleDarkMode() {
-  let css = document.getElementById("dark-mode");
-  if (!css) {
-    // Load dark mode
-    let head = document.getElementsByTagName("head")[0];
-    let css = document.createElement("link");
-    css.rel = "stylesheet";
-    css.type = "text/css";
-    css.href = "/static/home/css/style-dark.css";
-    css.setAttribute("id", "dark-mode");
-    head.appendChild(css);
-    let darkModeBtn = document.getElementById("dark-mode-button");
+  const darkMode = document.querySelector("#dark-mode");
+  const darkModeBtn = document.getElementById("dark-mode-button");
+  if (!darkMode.disabled) {
     if (darkModeBtn)
-      document.getElementById("dark-mode-button").innerText = "thème:nuit";
-    document.cookie = "dark-mode=true; samesite=lax; path=/";
-  } else {
-    // Unload dark mode
-    css.parentNode.removeChild(css);
-    let html = document.getElementsByTagName("html");
-    html.style = "background-color: whitesmoke;";
-    document.getElementById("dark-mode-button").innerText = "thème:jour"
+      darkModeBtn.innerText = "thème:jour";
+    darkMode.disabled = true;
     document.cookie = "dark-mode=false; samesite=lax; path=/";
+  } else {
+    if (darkModeBtn)
+      darkModeBtn.innerText = "thème:nuit";
+    darkMode.disabled = false;
+    document.cookie = "dark-mode=true; samesite=lax; path=/";
   }
 }
 
-if (isDarkMode() === 1) {
-  // Set dark background color ASAP to avoid flickering.
-  let html = document.getElementsByTagName("html")[0];
-  html.style = "background-color: #111;";
-  toggleDarkMode();
-}
+if (isDarkMode()) toggleDarkMode();
