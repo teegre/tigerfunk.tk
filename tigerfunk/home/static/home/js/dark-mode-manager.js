@@ -12,7 +12,7 @@ function isDarkMode() {
     }
   }
   if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
-    return 1
+    return 1;
   return 0;
 }
 
@@ -34,10 +34,16 @@ function toggleDarkMode() {
   } else {
     // Unload dark mode
     css.parentNode.removeChild(css);
+    let html = document.getElementsByTagName("html");
+    html.style = "background-color: whitesmoke;";
     document.getElementById("dark-mode-button").innerText = "thème:jour"
     document.cookie = "dark-mode=false; samesite=lax; path=/";
   }
 }
 
-if (isDarkMode() === 1)
+if (isDarkMode() === 1) {
+  // Set dark background color ASAP to avoid flickering.
+  let html = document.getElementsByTagName("html")[0];
+  html.style = "background-color: #111;";
   toggleDarkMode();
+}
