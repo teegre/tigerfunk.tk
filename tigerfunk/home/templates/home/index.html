@@ -45,44 +45,53 @@
   <small>À consommer dans les 30 jours.</small>
   <hr>
   <ul>
-   {% for article in articles %}
-     {% if article.recently_published %}
-     <li class=content-link>
-       <span class="a-date">{{ article.date|date:'Ymd' }}</span>
-       {% if article.is_new %}
-       <span class="new">nouveau</span>
-       {%endif %}
-       <a href="{% url 'detail' article.uid %}">
-         <strong>{{ article.title }}</strong>
-       </a>
-     </li>
-     {% endif %}
-   {% empty %}
-     <li>
-       <strong>Rien de nouveau sous le soleil.</strong>
-     </li>
-   {% endfor %}
-   </ul>
-   <hr>
+  {% for memory in memories %}
+    <li class="content-link">
+      <span class="a-date">{{ memory.date|date:'Ymd' }}</span>
+      <span class="new">souvenir</span>
+      <a href="{% url 'detail' memory.uid %}">
+        <strong>{{ memory.title }}</strong>
+      </a>
+    </li>
+  {% endfor %}
+  {% for article in articles %}
+    {% if article.recently_published %}
+    <li class=content-link>
+      <span class="a-date">{{ article.date|date:'Ymd' }}</span>
+      {% if article.is_new %}
+      <span class="new">nouveau</span>
+      {%endif %}
+      <a href="{% url 'detail' article.uid %}">
+        <strong>{{ article.title }}</strong>
+      </a>
+    </li>
+    {% endif %}
+  {% empty %}
+    <li>
+      <strong>Rien de nouveau sous le soleil.</strong>
+    </li>
+  {% endfor %}
+  </ul>
+  <hr>
   <!-- Archive -->
-   <h2><b>Contenu expiré</b></h2>
-   <small>Contenu ayant dépassé la durée limite de 30 jours.</small>
-   <hr>
-   {% regroup archives by date.month as article_list %}
-   <ul class="archives">
-   {% for month, arts in article_list %}
-   {% with article=arts|first %}
-   <li class="archive-item">
-     <a class="a-date" href="{% url 'archive' article.date.year month %}">
-       <strong>
-         {{ article.date|date:'Y/m' }}
-       </strong>
-     </a>
-   </li>
-   {% endwith %}
-   {% empty %}
-     <li><strong>Rien ici.</strong></li>
-   {% endfor %}
-   </ul>
- </main>
+  <h2><b>Contenu expiré</b></h2>
+  <small>Contenu ayant dépassé la durée limite de 30 jours.</small>
+  <hr>
+  {% regroup archives by date.month as article_list %}
+  <ul class="archives">
+  {% for month, arts in article_list %}
+    {% with article=arts|first %}
+    <li class="archive-item">
+      <a class="a-date" href="{% url 'archive' article.date.year month %}">
+        <strong>
+          {{ article.date|date:'Y/m' }}
+        </strong>
+      </a>
+    </li>
+    {% endwith %}
+  {% empty %}
+    <li><strong>Rien ici.</strong></li>
+  {% endfor %}
+  </ul>
+</main>
 {% endblock %}
