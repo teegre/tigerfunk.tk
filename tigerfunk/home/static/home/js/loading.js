@@ -1,15 +1,19 @@
-let article = document.getElementsByTagName("article")[0];
+let media = document.getElementsByClassName("media")[0];
 
 window.onload = function() {
-  let img = document.getElementsByClassName("loading")[0];
-  article.removeChild(img);
+  if (media) {
+    let img = document.getElementsByClassName("loading")[0];
+    media.removeChild(img);
+  }
 }
 
-let img = document.createElement("img");
-if (isDarkMode())
-  img.src = "/static/home/img/loading-dark.gif";
-else
-  img.src = "/static/home/img/loading-light.gif";
+if (media) {
+  let img = document.createElement("img");
+  if (isDarkMode())
+    img.src = "/static/home/img/loading-dark.gif";
+  else
+    img.src = "/static/home/img/loading-light.gif";
 
-img.className = "loading";
-article.appendChild(img);
+  img.className = "loading";
+  media.appendChild(img);
+}

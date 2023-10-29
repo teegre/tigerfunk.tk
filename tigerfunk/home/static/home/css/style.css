@@ -275,13 +275,13 @@ main ul {
   overflow-y: auto;
 }
 
-article {
-  position: relative;
-}
-
 article ul {
   list-style: circle;
   display: block;
+}
+
+.media {
+  position: relative;
 }
 
 .loading {
