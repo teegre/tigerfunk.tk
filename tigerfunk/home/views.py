@@ -47,6 +47,7 @@ class HomeView(generic.ListView):
 
   def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)
+    context['memories'] = Article.objects.filter(date__day=now().day, date__month=now().month)
     context['articles'] = Article.objects.filter( # pylint: disable=no-member
       date__gte=now() - timedelta(days=30), date__lte=now(), hidden=False
     )
