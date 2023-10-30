@@ -21,6 +21,6 @@ admin.site.site_title = 'TIGERFUNK.TK Administration Site'
 admin.site.site_index = 'TIGERFUNK.TK'
 
 urlpatterns = [
-  path('admin/', admin.site.urls),
+  path('console/', admin.site.urls),
   path('', include('home.urls')),
 ]

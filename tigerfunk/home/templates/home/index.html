@@ -5,6 +5,9 @@
 <div class="propaganda">
   <div class="p-message">{{ message|safe }}</div>
 </div>
+{% for msg in pinned %}
+<div class="message">{{ msg|safe }}</div>
+{% endfor%}
 <!-- Tag Bar -->
 <h2><b>Substances actives</b></h2>
 <div class="tag-bar">

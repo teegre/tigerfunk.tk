@@ -94,6 +94,7 @@ pre_save.connect(pre_save_create_article_uid, sender=Article)
 class PropagandaMessage(models.Model):
   """ Propaganda message """
   message = models.TextField(verbose_name='Message de propagande', max_length=255)
+  pinned = models.BooleanField(default=False)
 
   def __str__(self):
     return self.message
@@ -105,6 +106,9 @@ def get_random_message():
     return '<b>tigerfunk.tk</b> vous souhaite la <b>bienvenue</b> !'
   while True:
     pk = randint(1, max_id)
-    message = PropagandaMessage.objects.filter(pk=pk).first()
+    message = PropagandaMessage.objects.filter(pk=pk, pinned=False).first()
     if message:
       return message.message
+
+def get_pinned_messages():
+  return PropagandaMessage.objects.filter(pinned=True)
