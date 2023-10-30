@@ -56,18 +56,6 @@ html {
   border-radius: 4px;
 }
 
-div .message {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  background: purple;
-  color: whitesmoke;
-  padding: 4px;
-  margin: 8px;
-  border-radius: 4px;
-}
-
 .close-btn {
   cursor: pointer;
 }
@@ -535,6 +523,17 @@ main table tr:nth-child(odd) {
   white-space: nowrap;
   animation: message 2s linear;
 }
+
+.message {
+  background: darkorchid;
+  color: whitesmoke;
+  padding: 4px;
+  margin-top: 2px;
+  border-radius: 4px;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
 
 .paginator {
   display: flex;

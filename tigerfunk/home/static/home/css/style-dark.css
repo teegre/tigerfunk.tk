@@ -157,6 +157,11 @@ iframe {
   color: #777;
 }
 
+.message {
+  background-color: #272727;
+  color: #999;
+}
+
 .page {
   background: #222;
   color: #777;

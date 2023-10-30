@@ -12,7 +12,7 @@ from django.core.paginator import Paginator
 # from django.core.mail import send_mail, BadHeaderError
 # from django.contrib import messages
 from django.db.models import Count, Q
-from .models import Tag, Article, get_random_message
+from .models import Tag, Article, get_random_message, get_pinned_messages
 # from .forms import ContactForm
 
 class HomeView(generic.ListView):
@@ -67,6 +67,8 @@ class HomeView(generic.ListView):
     context['tags'] = self.custom_tag_query_set()
 
     context['message'] = get_random_message()
+
+    context['pinned'] = get_pinned_messages()
 
     context['domain'] = self.request.build_absolute_uri('/')
 
