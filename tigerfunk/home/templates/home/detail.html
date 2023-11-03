@@ -16,8 +16,7 @@
     </article>
     <hr>
     {% if article.related.get_queryset %}
-    <u><b>Contenu connexe</b></u> :
-    <br>
+    <h2>Contenu connexe</h2>
     <ul>
     {% for related_article in article.related.get_queryset %}
       <li class="content-link">
