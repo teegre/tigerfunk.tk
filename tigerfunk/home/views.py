@@ -50,6 +50,7 @@ class HomeView(generic.ListView):
     context['memories'] = Article.objects.filter(
         date__day=now().day,
         date__month=now().month,
+        date__lte=now() - timedelta(weeks=52),
         hidden=False
     )
     context['articles'] = Article.objects.filter( # pylint: disable=no-member
