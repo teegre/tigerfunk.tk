@@ -349,6 +349,10 @@ main a:hover {
   transition: 0.25s ease-in-out;
 }
 
+article a {
+  text-decoration: underline;
+}
+
 blockquote {
   background: purple;
   font-family: serif;
