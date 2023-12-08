@@ -5,6 +5,7 @@ var play_btn = document.querySelector(".main-play-btn");
 var trackTitle = document.querySelector(".title");
 var trackElapsed = document.querySelector(".elapsed");
 var trackDuration = document.querySelector(".duration");
+var pageTitle = document.title;
 
 audio.ontimeupdate = onTimeUpdate;
 
@@ -91,9 +92,11 @@ function updateTrackInfo() {
   if (audio.paused) {
     play_btn.innerHTML = "<img src='/static/home/img/play.svg'>";
     btn.innerHTML = "<img src='/static/home/img/play.svg'>";
+    document.title = pageTitle;
   } else {
     play_btn.innerHTML = "<img src='/static/home/img/pause.svg'>";
     btn.innerHTML = "<img src='/static/home/img/pause.svg'>";
+    document.title = " ▶ " + trackTitle.innerText + " | " + pageTitle;
   }
 }
 
