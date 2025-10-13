@@ -30,6 +30,10 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = bool(os.getenv('DEBUG') == 'True')
 
 ALLOWED_HOSTS = ['tigerfunk.tk',]
+
+if DEBUG:
+  ALLOWED_HOSTS += ['localhost', '127.0.0.1']
+
 CSRF_TRUSTED_ORIGINS = ['http://tigerfunk.tk/*','https://tigerfunk.tk/*',]
 
 # Application definition
